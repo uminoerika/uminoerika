@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Retro Pastel Blog</title>
+    <style>
+        /* --- CẤU HÌNH MÀU SẮC & PHÔNG CHỮ (Retro Japanese Pastel) --- */
+        @import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;700&family=Space+Grotesk:wght@400;700&display=swap');
+
+        :root {
+            --bg-pink: #FFF0F5;      /* Hồng pastel nền */
+            --panel-blue: #E6F2F5;   /* Xanh pastel bảng tin */
+            --accent-orange: #FFB380;/* Cam nhạt chú cá */
+            --text-dark: #4A4E69;    /* Chữ chính */
+            --border-color: #B5C2CA; /* Đường viền retro */
+            --white: #FFFFFF;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Comfortaa', 'Space Grotesk', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-pink);
+            color: var(--text-dark);
+            padding: 20px;
+            line-height: 1.6;
+            background-image: radial-gradient(var(--panel-blue) 15%, transparent 16%);
+            background-size: 30px 30px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        /* --- HEADER & DECORATION (Những chú cá cam) --- */
+        header {
+            text-align: center;
+            padding: 40px 20px;
+            background: var(--panel-blue);
+            border: 4px solid var(--border-color);
+            border-radius: 20px;
+            position: relative;
+            box-shadow: 6px 6px 0px var(--border-color);
+            margin-bottom: 40px;
+            overflow: hidden;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            color: var(--text-dark);
+            margin-bottom: 10px;
+        }
+
+        /* Định dạng chú cá hoạt hình đơn giản */
+        .fish-decor {
+            position: absolute;
+            width: 40px;
+            height: 25px;
+            background: var(--accent-orange);
+            border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+            display: inline-block;
+        }
+        /* Đuôi cá */
+        .fish-decor::after {
+            content: '';
+            position: absolute;
+            right: -8px;
+            top: 5px;
+            width: 0;
+            height: 0;
+            border-top: 8px solid transparent;
+            border-bottom: 8px solid transparent;
+            border-left: 12px solid var(--accent-orange);
+        }
+        /* Mắt cá */
+        .fish-decor::before {
+            content: '';
+            position: absolute;
+            left: 8px;
+            top: 6px;
+            width: 4px;
+            height: 4px;
+            background: var(--text-dark);
+            border-radius: 50%;
+        }
+
+        .fish-1 { top: 15%; left: 10%; transform: rotate(-10deg); }
+        .fish-2 { bottom: 15%; right: 10%; transform: rotate(15deg); }
+
+        /* --- NAVIGATION / MENU --- */
+        nav {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        nav a, .filter-btn {
+            background: var(--white);
+            padding: 10px 20px;
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: bold;
+            border: 3px solid var(--border-color);
+            border-radius: 12px;
+            box-shadow: 4px 4px 0px var(--border-color);
+            transition: all 0.2s ease;
+            cursor: pointer;
+        }
+
+        nav a:hover, .filter-btn:hover, .filter-btn.active {
+            transform: translate(2px, 2px);
+            box-shadow: 2px 2px 0px var(--border-color);
+            background: var(--accent-orange);
+            color: white;
+        }
+
+        /* --- GIAO DIỆN CHÍNH (LAYOUT) --- */
+        .main-layout {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 30px;
+        }
+
+        .section-box {
+            background: var(--white);
+            border: 4px solid var(--border-color);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 6px 6px 0px var(--border-color);
+        }
+
+        .section-box h2 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            border-bottom: 3px dashed var(--panel-blue);
+            padding-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* --- BỘ LỌC NỘI DUNG (MỤC 3) --- */
+        .sub-categories {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 25px;
+            flex-wrap: wrap;
+        }
+
+        /* --- DANH SÁCH BÀI VIẾT (BLOG POSTS) --- */
+        .blog-list {
+            display: grid;
+            gap: 25px;
+        }
+
+        .blog-post {
+            border: 3px solid var(--border-color);
+            border-radius: 15px;
+            padding: 20px;
+            background: var(--panel-blue);
+            transition: all 0.3s ease;
+        }
+
+        .blog-post.hidden {
+            display: none;
+        }
+
+        .blog-post h3 {
+            margin-bottom: 10px;
+            font-size: 1.4rem;
+        }
+
+        .blog-post .meta-info {
+            font-size: 0.85rem;
+            color: #7a809b;
+            margin-bottom: 12px;
+        }
+
+        .blog-post img {
+            width: 100%;
+            max-height: 350px;
+            object-fit: cover;
+            border-radius: 10px;
+            border: 2px solid var(--border-color);
+            margin: 12px 0;
+        }
+
+        .blog-post p {
+            margin-bottom: 15px;
+        }
+
+        /* --- HASHTAGS --- */
+        .hashtag-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .hashtag {
+            background: var(--white);
+            color: var(--text-dark);
+            padding: 4px 10px;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            border: 2px solid var(--border-color);
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .hashtag:hover {
+            background: var(--accent-orange);
+            color: white;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            padding: 20px;
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <!-- HEADER -->
+    <header>
+        <div class="fish-decor fish-1"></div>
+        <h1>Komorebi Corner 🎏</h1>
+        <p>Khoảng trời nhỏ bình yên, vụn vặt và mộng mơ</p>
+        <div class="fish-decor fish-2"></div>
+    </header>
+
+    <!-- NAVIGATION MENU -->
+    <nav>
+        <a href="#about">1. Giới thiệu</a>
+        <a href="#purpose">2. Mục đích</a>
+        <a href="#blog-content">3. Góc Nội Dung</a>
+    </nav>
+
+    <!-- MAIN CONTENT -->
+    <div class="main-layout">
+
+        <!-- MỤC 1: GIỚI THIỆU BẢN THÂN -->
+        <section id="about" class="section-box">
+            <h2><span class="fish-decor" style="position:static; display:inline-block; transform: scale(0.7);"></span> 1. Về Tôi</h2>
+            <p>Chào bạn, cảm ơn bạn đã ghé thăm góc nhỏ của tôi! Tôi là một người yêu thích những điều hoài niệm, âm thanh nhẹ nhàng của những bản nhạc xưa và những trang sách thơm mùi giấy mới. Trang web này giống như một chiếc hộp lưu giữ những vụn vặt thường nhật đáng yêu của cuộc sống.</p>
+        </section>
+
+        <!-- MỤC 2: MỤC ĐÍCH VIẾT BLOG -->
+        <section id="purpose" class="section-box">
+            <h2><span class="fish-decor" style="position:static; display:inline-block; transform: scale(0.7);"></span> 2. Mục Đích Của Blog</h2>
+            <p>Tôi dựng nên chiếc blog này với mong muốn viết để lưu giữ, viết để sẻ chia. Giữa nhịp sống hối hả, đây sẽ là nơi tôi sống chậm lại, ghi lại hành trình trưởng thành, những cuốn sách hay đã sưởi ấm tâm hồn tôi, và cả những giai điệu dịu dàng mà tôi vô tình bắt gặp.</p>
+        </section>
+
+        <!-- MỤC 3: NỘI DUNG BLOG -->
+        <section id="blog-content" class="section-box">
+            <h2><span class="fish-decor" style="position:static; display:inline-block; transform: scale(0.7);"></span> 3. Góc Nhật Ký & Sẻ Chia</h2>
+            
+            <!-- Thanh lọc danh mục nhỏ (3.1, 3.2, 3.3) -->
+            <div class="sub-categories">
+                <button class="filter-btn active" onclick="filterCategory('all')">Tất cả</button>
+                <button class="filter-btn" onclick="filterCategory('life')">3.1 Đời sống thường nhật</button>
+                <button class="filter-btn" onclick="filterCategory('books')">3.2 Góc về Sách</button>
+                <button class="filter-btn" onclick="filterCategory('music')">3.3 Chia sẻ Âm nhạc</button>
+            </div>
+
+            <!-- Danh sách bài viết -->
+            <div class="blog-list" id="blogList">
+                
+                <!-- Bài viết 1: Thuộc Đời Sống -->
+                <article class="blog-post" data-category="life" data-tags="#nang #binhyen">
+                    <h3>Một chiều nắng ấm và tách trà ấm</h3>
+                    <div class="meta-info">Danh mục: Đời sống thường nhật | Ngày đăng: 20/05/2026</div>
+                    <!-- Ảnh minh họa mẫu (Bạn có thể thay link ảnh của bạn vào đây) -->
+                    <img src="https://images.unsplash.com/photo-1515694346937-94d85e41e6f0?w=600&auto=format&fit=crop" alt="Chiều bình yên">
+                    <p>Hôm nay trời Hà Nội đổ những vệt nắng thật trong qua khung cửa sổ. Tôi ngồi tựa lưng bên bàn học, tự thưởng cho mình một tách trà nhài nóng và ngắm nhìn những tán lá đung đưa. Những ngày bình dị như thế này khiến tôi nhận ra hạnh phúc thật ra rất giản đơn.</p>
+                    <div class="hashtag-container">
+                        <span class="hashtag" onclick="filterHashtag('#nang')">#nang</span>
+                        <span class="hashtag" onclick="filterHashtag('#binhyen')">#binhyen</span>
+                    </div>
+                </article>
+
+                <!-- Bài viết 2: Thuộc Sách -->
+                <article class="blog-post" data-category="books" data-tags="#sach #suynghi">
+                    <h3>Đọc lại một cuốn sách cũ vào ngày mưa</h3>
+                    <div class="meta-info">Danh mục: Góc về Sách | Ngày đăng: 18/05/2026</div>
+                    <img src="https://images.unsplash.com/photo-1544640808-32ca72ac7f37?w=600&auto=format&fit=crop" alt="Đọc sách">
+                    <p>Mỗi lần lật mở lại những trang sách cũ, tôi lại tìm thấy một tầng ý nghĩa mới mà trước đây mình từng bỏ lỡ. Sách giống như một người bạn tri kỷ, luôn kiên nhẫn chờ đợi ta trưởng thành để thấu hiểu nó sâu sắc hơn.</p>
+                    <div class="hashtag-container">
+                        <span class="hashtag" onclick="filterHashtag('#sach')">#sach</span>
+                        <span class="hashtag" onclick="filterHashtag('#suynghi')">#suynghi</span>
+                    </div>
+                </article>
+
+                <!-- Bài viết 3: Thuộc Âm Nhạc -->
+                <article class="blog-post" data-category="music" data-tags="#music #binhyen #retro">
+                    <h3>Giai điệu City Pop cho buổi tối mơ màng</h3>
+                    <div class="meta-info">Danh mục: Chia sẻ Âm nhạc | Ngày đăng: 15/05/2026</div>
+                    <img src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?w=600&auto=format&fit=crop" alt="Âm nhạc">
+                    <p>Thả mình vào những giai điệu kẹo ngọt đầy hoài niệm của thập niên 80s. Tiếng bass bập bùng cùng giọng hát trong trẻo như đưa tôi đi qua những con phố lung linh ánh đèn neon của Tokyo xưa cũ.</p>
+                    <div class="hashtag-container">
+                        <span class="hashtag" onclick="filterHashtag('#music')">#music</span>
+                        <span class="hashtag" onclick="filterHashtag('#binhyen')">#binhyen</span>
+                        <span class="hashtag" onclick="filterHashtag('#retro')">#retro</span>
+                    </div>
+                </article>
+
+            </div>
+        </section>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>© 2026 Made with 🧡 và những chú cá cam nhỏ</p>
+    </footer>
+
+</div>
+
+<!-- --- XỬ LÝ JAVASCRIPT: BỘ LỌC CATEGORY & HASHTAG --- -->
+<script>
+    // 1. Hàm lọc theo danh mục con (3.1, 3.2, 3.3)
+    function filterCategory(category) {
+        // Cập nhật trạng thái active cho nút
+        const buttons = document.querySelectorAll('.filter-btn');
+        buttons.forEach(btn => btn.classList.remove('active'));
+        event.target.classList.add('active');
+
+        // Lọc bài viết
+        const posts = document.querySelectorAll('.blog-post');
+        posts.forEach(post => {
+            if (category === 'all' || post.getAttribute('data-category') === category) {
+                post.classList.remove('hidden');
+            } else {
+                post.classList.add('hidden');
+            }
+        });
+    }
+
+    // 2. Hàm lọc thông minh theo Hashtag khi người dùng click vào hashtag
+    function filterHashtag(tag) {
+        // Đặt lại các nút danh mục về trạng thái không active (vì đang lọc chuyên sâu bằng tag)
+        const buttons = document.querySelectorAll('.filter-btn');
+        buttons.forEach(btn => btn.classList.remove('active'));
+
+        const posts = document.querySelectorAll('.blog-post');
+        posts.forEach(post => {
+            const postTags = post.getAttribute('data-tags');
+            if (postTags.includes(tag)) {
+                post.classList.remove('hidden');
+            } else {
+                post.classList.add('hidden');
+            }
+        });
+
+        // Tự động cuộn mượt mà lên đầu khu vực blog để xem kết quả lọc
+        document.getElementById('blog-content').scrollIntoView({ behavior: 'smooth' });
+    }
+</script>
+
+</body>
+</html>
