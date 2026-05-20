@@ -29,7 +29,7 @@
     color: var(--text-dark);
     padding: 20px;
     line-height: 1.6;
-    background-image: url('f83a6adb-3f55-49e4-a7ac-09927762054f.jpg');
+    background-image: url('quality_restoration_20260521021539118.png');
     background-attachment: fixed;
     background-size: cover;
     background-position: center;
@@ -230,6 +230,34 @@
             font-size: 0.9rem;
             opacity: 0.8;
         }
+    /* --- HIỆU ỨNG NGÔI SAO LẤP LÁNH KHI CLICK --- */
+        .click-star {
+            position: absolute;
+            width: 15px;
+            height: 15px;
+            pointer-events: none;
+            animation: popOut 0.8s ease-out forwards;
+        }
+
+        .click-star::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-color: var(--star-color);
+            clip-path: polygon(50% 0%, 65% 35%, 100% 50%, 65% 65%, 50% 100%, 35% 65%, 0% 50%, 35% 35%);
+        }
+
+        @keyframes popOut {
+            0% {
+                transform: translate(-50%, -50%) scale(0) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translate(var(--mx), var(--my)) scale(1.2) rotate(180deg);
+                opacity: 0;
+            }
+        }
     </style>
 </head>
 <body>
@@ -373,5 +401,36 @@ Tớ là một chiếc não có vẻ luôn đi sau loài người 100 bước, l
     }
 </script>
 
+<script>
+    const starColors = ['#FFF3A7', '#FFB7CE', '#AEE2FF']; // Vàng, Hồng, Xanh nước biển nhạt
+
+    window.addEventListener('click', function(e) {
+        for (let i = 0; i < 5; i++) {
+            const star = document.createElement('div');
+            star.className = 'click-star';
+            
+            const randomColor = starColors[Math.floor(Math.random() * starColors.length)];
+            star.style.setProperty('--star-color', randomColor);
+            
+            star.style.left = e.pageX + 'px';
+            star.style.top = e.pageY + 'px';
+            
+            const moveX = (Math.random() - 0.5) * 80 - 50;
+            const moveY = (Math.random() - 0.5) * 80 - 50;
+            star.style.setProperty('--mx', moveX + '%');
+            star.style.setProperty('--my', moveY + '%');
+            
+            const size = Math.random() * 12 + 8;
+            star.style.width = size + 'px';
+            star.style.height = size + 'px';
+            
+            document.body.appendChild(star);
+            
+            setTimeout(() => {
+                star.remove();
+            }, 800);
+        }
+    });
+</script>
 </body>
 </html>
