@@ -10,7 +10,7 @@
 
         :root {
             --bg-pink: #FFD1DC;      /* Hồng pastel đậm hơn, ngọt ngào */
-            --panel-blue: #FFF9E6;   
+            --panel-blue: #EBF3F5;   /* Màu xanh dương khói nhạt bạn chọn */
             --accent-orange: #FF8C42;/* Cam san hô đậm nổi bật cho chú cá */
             --text-dark: #2E3142;    /* Chữ chính chuyển sang màu than tối để cực kỳ sắc nét */
             --border-color: #8fa4ad; /* Đường viền retro đậm đà, tương phản tốt */
@@ -25,15 +25,15 @@
         }
 
         body {
-    background-color: var(--bg-pink);
-    color: var(--text-dark);
-    padding: 20px;
-    line-height: 1.6;
-    background-image: url('quality_restoration_20260521021539118.png');
-    background-attachment: fixed;
-    background-size: cover;
-    background-position: center;
-}
+            background-color: var(--bg-pink);
+            color: var(--text-dark);
+            padding: 20px;
+            line-height: 1.6;
+            background-image: url('quality_restoration_20260521021539118.png');
+            background-attachment: fixed;
+            background-size: cover;
+            background-position: center;
+        }
 
         .container {
             max-width: 900px;
@@ -44,7 +44,7 @@
         header {
             text-align: center;
             padding: 40px 20px;
-            background: rgba(235, 243, 245, 0.85);
+            background: rgba(235, 243, 245, 0.85); /* Khung header trong suốt tinh tế */
             border: 4px solid var(--border-color);
             border-radius: 20px;
             position: relative;
@@ -120,8 +120,8 @@
         nav a:hover, .filter-btn:hover, .filter-btn.active {
             transform: translate(2px, 2px);
             box-shadow: 2px 2px 0px var(--border-color);
-            background: #FFB7C5; /* Đã đổi thành màu hồng thứ 2 */
-            color: var(--text-dark); /* Giữ màu chữ tối để nhìn cho rõ nét */
+            background: #F4C2D7; /* Màu hồng thứ 2 ngọt ngào khi di chuột */
+            color: var(--text-dark);
         }
 
         /* --- GIAO DIỆN CHÍNH (LAYOUT) --- */
@@ -132,7 +132,7 @@
         }
 
         .section-box {
-            background: rgba(255, 255, 255, 0.85); /* Màu trắng trong suốt 85% */
+            background: rgba(255, 255, 255, 0.85); /* Khung hộp trắng trong suốt 85% */
             border: 4px solid var(--border-color);
             border-radius: 20px;
             padding: 30px;
@@ -142,7 +142,7 @@
         .section-box h2 {
             font-size: 1.8rem;
             margin-bottom: 15px;
-            border-bottom: 3px dashed var(--panel-blue);
+            border-bottom: 3px dashed var(--border-color);
             padding-bottom: 8px;
             display: flex;
             align-items: center;
@@ -167,7 +167,7 @@
             border: 3px solid var(--border-color);
             border-radius: 15px;
             padding: 20px;
-            background: var(--panel-blue);
+            background: rgba(235, 243, 245, 0.85); /* Khung bài viết màu #EBF3F5 trong suốt */
             transition: all 0.3s ease;
         }
 
@@ -218,7 +218,7 @@
         }
 
         .hashtag:hover {
-            background: #FFB7C5; /* Đã đổi thành màu hồng thứ 2 */
+            background: #F4C2D7; /* Màu hồng thứ 2 khi di chuột vào tag */
             color: var(--text-dark);
         }
 
@@ -230,7 +230,8 @@
             font-size: 0.9rem;
             opacity: 0.8;
         }
-    /* --- HIỆU ỨNG NGÔI SAO LẤP LÁNH KHI CLICK --- */
+
+        /* --- HIỆU ỨNG NGÔI SAO LẤP LÁNH KHI CLICK --- */
         .click-star {
             position: absolute;
             width: 38px;
@@ -264,7 +265,6 @@
 
 <div class="container">
 
-    <!-- HEADER -->
     <header>
         <div class="fish-decor fish-1"></div>
         <h1>Seally feesh's little aquarium</h1>
@@ -272,97 +272,46 @@
         <div class="fish-decor fish-2"></div>
     </header>
 
-    <!-- NAVIGATION MENU -->
     <nav>
         <a href="#about">1. Get to know</a>
         <a href="#purpose">2. About this lovely corner</a>
-        <a href="#blog-content">3. Let's sink into my dreams </a>
+        <a href="#blog-content">3. Let's sink into my dreams</a>
     </nav>
 
-    <!-- MAIN CONTENT -->
     <div class="main-layout">
 
-        <!-- MỤC 1: GIỚI THIỆU BẢN THÂN -->
         <section id="about" class="section-box">
             <h2><span class="fish-decor" style="position:static; display:inline-block; transform: scale(0.7);"></span> About me ÙwU</h2>
-            <p> Hallo hallo, chào mừng tới với chiếc bể cá trôi nổi những vụn vặt lộn xộn linh tinh lung tung về tất cả những vấn đề có thể xuất hiện trong cuộc sống của tớ! Tớ là <span style="color: #FB6F92      height: 100%;
-            background-color: var(--star-color);
-            clip-path: polygon(50% 0%, 65% 35%, 100% 50%, 65% 65%, 50% 100%, 35% 65%, 0% 50%, 35% 35%);
-        }
-
-        @keyframes popOut {
-            0% {
-                transform: translate(-50%, -50%) scale(0) rotate(0deg);
-                opacity: 1;
-            }
-            100% {
-                transform: translate(var(--mx), var(--my)) scale(1.2) rotate(180deg);
-                opacity: 0;
-            }
-        }
-    </style>
-</head>
-<body>
-
-<div class="container">
-
-    <!-- HEADER -->
-    <header>
-        <div class="fish-decor fish-1"></div>
-        <h1>Seally feesh's little aquarium</h1>
-        <p>A fish floating in its own dreams and emotions</p> 
-        <div class="fish-decor fish-2"></div>
-    </header>
-
-    <!-- NAVIGATION MENU -->
-    <nav>
-        <a href="#about">1. Get to know</a>
-        <a href="#purpose">2. About this lovely corner</a>
-        <a href="#blog-content">3. Let's sink into my dreams </a>
-    </nav>
-
-    <!-- MAIN CONTENT -->
-    <div class="main-layout">
-
-        <!-- MỤC 1: GIỚI THIỆU BẢN THÂN -->
-        <section id="about" class="section-box">
-            <h2><span class="fish-decor" style="position:static; display:inline-block; transform: scale(0.7);"></span> About me ÙwU</h2>
-            <p> Hallo hallo, chào mừng tới với chiếc bể cá trôi nổi những vụn vặt lộn xộn linh tinh lung tung về tất cả những vấn đề có thể xuất hiện trong cuộc sống của tớ! Tớ là <span style="color: #FB6F92;">海乃  英莉夏</span>, hay <span style="color: #FB6F92;">Umino Erika</span> - một cô nàng có vẻ như đã đầu thai sai thời điểm để thay vì trở thành một con cá bơi lội tung tăng và đắm mình vào đại dương thăm thẳm thì lại đang ngồi đây, đau lưng, thiếu ngủ, uống Monster cũng phải chọn lon màu hồng và lạch cạch gõ phím với mong mỏi được isekai vào một thế giới nào đó bớt áp lực ỌwO. </p>
+            <p>Hallo hallo, chào mừng tới với chiếc bể cá trôi nổi những vụn vặt lộn xộn linh tinh lung tung về tất cả những vấn đề có thể xuất hiện trong cuộc sống của tớ! Tớ là <span style="color: #F4C2D7; font-weight: bold;">海乃 英莉夏</span>, hay <span style="color: #F4C2D7; font-weight: bold;">Umino Erika</span> - một cô nàng có vẻ như đã đầu thai sai thời điểm để thay vì trở thành một con cá bơi lội tung tăng và đắm mình vào đại dương thăm thẳm thì lại đang ngồi đây, đau lưng, thiếu ngủ, uống Monster cũng phải chọn lon màu hồng và lạch cạch gõ phím với mong mỏi được isekai vào một thế giới nào đó bớt áp lực ỌwO.</p>
             <br><br>
-            <p> Tớ là một chiếc não có vẻ luôn đi sau loài người 100 bước, lúc nào cũng có đến lắm mớ suy nghĩ kỳ (quặc) lạ và, yeah, thường xuyên rơi vào trạng thái treo máy vì quá tải thông tin… TwT. Hiện tại, tớ đang (có vẻ không) kiên trì theo đuổi sự nghiệp Văn chương mà đảm bảo ra trường chỉ có thể về nhà cầu mưa để đất mềm ra cho dễ cạp, nghiên cứu mấy vấn đề linh tinh liên quan tới đủ thứ trên đời mà kể như bản đồ sao hay các vấn đề Chiêm tinh học OwO. Ngoài ra, tớ còn có những sở thích mà đa phần loài người sẽ thấy kì quặc, ví dụ như ờm, dán mắt vào bể cá hàng giờ đồng hồ liên tục không nhúc nhích hay bật phim kinh dị làm background music mỗi khi nướng cookies. Anyways, khi nghĩ ra gì đó thì tớ sẽ tiếp tục update sau, và trước khi đó thì một lần nữa, chào mừng cậu tới với thế giới nhỏ của tớ >w<
- </p>
+            <p>Tớ là một chiếc não có vẻ luôn đi sau loài người 100 bước, lúc nào cũng có đến lắm mớ suy nghĩ kỳ (quặc) lạ và, yeah, thường xuyên rơi vào trạng thái treo máy vì quá tải thông tin… TwT. Hiện tại, tớ đang (có vẻ không) kiên trì theo đuổi sự nghiệp <span style="color: #F4C2D7; font-weight: bold;">Văn chương</span> mà đảm bảo ra trường chỉ có thể về nhà cầu mưa để đất mềm ra cho dễ cạp, nghiên cứu mấy vấn đề linh tinh liên quan tới đủ thứ trên đời mà kể như bản đồ sao hay các vấn đề <span style="color: #F4C2D7; font-weight: bold;">Chiêm tinh học</span> OwO.</p>
+            <br><br>
+            <p>Ngoài ra, tớ còn có những sở thích mà đa phần loài người sẽ thấy kì quặc, ví dụ như ờm, dán mắt vào bể cá hàng giờ đồng hồ liên tục không nhúc nhích hay bật phim kinh dị làm background music mỗi khi nướng cookies. Anyways, khi nghĩ ra gì đó thì tớ sẽ tiếp tục update sau, và trước khi đó thì một lần nữa, chào mừng cậu tới với thế giới nhỏ của tớ &gt;w&lt;</p>
         </section>
 
-        <!-- MỤC 2: MỤC ĐÍCH VIẾT BLOG -->
         <section id="purpose" class="section-box">
             <h2><span class="fish-decor" style="position:static; display:inline-block; transform: scale(0.7);"></span> What is in this little aquarium?</h2>
-            <p>Một đêm nọ như bao đêm nào, chiếc blog này ra đời với sứ mệnh không gì hơn là phục vụ cho công cuộc lảm nhảm lải nhải của một yapper không biết phải yap với ai TT. Chủ đề trên blog bao gồm <span style="color: #;">tất tần tật</span> những gì chiếc não khiêm tốn này có thể nghĩ đến, từ những vấn đề vĩ mô như Triết học hay Vật lý (không thường xuyên lắm), cho tới những vấn đề lông gà vỏ tỏi như cách làm bánh mì chuối socola nhưng công thức có thêm bột whey vị socola dành cho gymer hay một số kiến thức Chiêm tinh, Văn học vụn vặt bất chợt xẹt ngang qua đầu. Anyways, nó sẽ là một chiếc bể cá khá lộn xộn, vì dù gì con cá bơi trong đó khá thường xuyên rơi vào tình trạng quá tải thông tin mà ỌwO
-</p>
+            <p>Một đêm nọ như bao đêm nào, chiếc blog này ra đời với sứ mệnh không gì hơn là phục vụ cho công cuộc lảm nhảm lải nhải của một yapper không biết phải yap với ai TT. Chủ đề trên blog bao gồm <span style="color: #F4C2D7; font-weight: bold;">tất tần tật</span> những gì chiếc não khiêm tốn này có thể nghĩ đến, từ những vấn đề vĩ mô như Triết học hay Vật lý (không thường xuyên lắm), cho tới những vấn đề lông gà vỏ tỏi như cách làm bánh mì chuối socola nhưng công thức có thêm bột whey vị socola dành cho gymer hay một số kiến thức Chiêm tinh, Văn học vụn vặt bất chợt xẹt ngang qua đầu. Anyways, nó sẽ là một chiếc bể cá khá lộn xộn, vì dù gì con cá bơi trong đó khá thường xuyên rơi vào tình trạng quá tải thông tin mà ỌwO</p>
             <br><br>
-            <p>Để đọc thêm về 7749 thứ ngẫu nhiên xuất hiện vào những thời điểm kì quặc quái gở trong ngày, hãy check danh mục <span style="color: #FB6F92;">"How a fish dreamin"</span>, những chủ đề cụ thể hơn là sách và nhạc hãy check qua lần lượt các mục <span style="color: #FB6F92;">"How a fish enjoys reading"</span> và <span style="color: #FB6F92;">"How a fish floating in music"</span> OwO</p>
+            <p>Để đọc thêm về 7749 thứ ngẫu nhiên xuất hiện vào những thời điểm kì quặc quái gở trong ngày, hãy check danh mục <span style="color: #F4C2D7; font-weight: bold;">"How a fish dreamin"</span>, những chủ đề cụ thể hơn là sách và nhạc hãy check qua lần lượt các mục <span style="color: #F4C2D7; font-weight: bold;">"How a fish enjoys reading"</span> và <span style="color: #F4C2D7; font-weight: bold;">"How a fish floating in music"</span> OwO</p>
             <br><br>
-            <p>I think thats all OwO Hope u have a great time here >< </p>
+            <p>I think thats all OwO Hope u have a great time here &gt;w&lt;</p>
         </section>
 
-        <!-- MỤC 3: NỘI DUNG BLOG -->
         <section id="blog-content" class="section-box">
             <h2><span class="fish-decor" style="position:static; display:inline-block; transform: scale(0.7);"></span> Pick ur fav and enjoy with some tea and cookies OwO </h2>
             
-            <!-- Thanh lọc danh mục nhỏ (3.1, 3.2, 3.3) -->
             <div class="sub-categories">
                 <button class="filter-btn" onclick="filterCategory('life')">How a fish dreamin'</button>
                 <button class="filter-btn" onclick="filterCategory('books')">How a fish enjoys reading</button>
                 <button class="filter-btn" onclick="filterCategory('music')">How a fish floating in melody</button>
             </div>
 
-            <!-- Danh sách bài viết -->
             <div class="blog-list" id="blogList">
                 
-                <!-- Bài viết 1: Thuộc Đời Sống -->
                 <article class="blog-post" data-category="life" data-tags="#nang #binhyen">
                     <h3>Một chiều nắng ấm và tách trà ấm</h3>
                     <div class="meta-info">Danh mục: Đời sống thường nhật | Ngày đăng: 20/05/2026</div>
-                    <!-- Ảnh minh họa mẫu (Bạn có thể thay link ảnh của bạn vào đây) -->
                     <img src="https://images.unsplash.com/photo-1515694346937-94d85e41e6f0?w=600&auto=format&fit=crop" alt="Chiều bình yên">
                     <p>Hôm nay trời Hà Nội đổ những vệt nắng thật trong qua khung cửa sổ. Tôi ngồi tựa lưng bên bàn học, tự thưởng cho mình một tách trà nhài nóng và ngắm nhìn những tán lá đung đưa. Những ngày bình dị như thế này khiến tôi nhận ra hạnh phúc thật ra rất giản đơn.</p>
                     <div class="hashtag-container">
@@ -371,7 +320,6 @@
                     </div>
                 </article>
 
-                <!-- Bài viết 2: Thuộc Sách -->
                 <article class="blog-post" data-category="books" data-tags="#sach #suynghi">
                     <h3>Đọc lại một cuốn sách cũ vào ngày mưa</h3>
                     <div class="meta-info">Danh mục: Góc về Sách | Ngày đăng: 18/05/2026</div>
@@ -383,7 +331,6 @@
                     </div>
                 </article>
 
-                <!-- Bài viết 3: Thuộc Âm Nhạc -->
                 <article class="blog-post" data-category="music" data-tags="#music #binhyen #retro">
                     <h3>Giai điệu City Pop cho buổi tối mơ màng</h3>
                     <div class="meta-info">Danh mục: Chia sẻ Âm nhạc | Ngày đăng: 15/05/2026</div>
@@ -400,23 +347,18 @@
         </section>
     </div>
 
-    <!-- FOOTER -->
     <footer>
         <p>© Umino Erika </p>
     </footer>
 
 </div>
 
-<!-- --- XỬ LÝ JAVASCRIPT: BỘ LỌC CATEGORY & HASHTAG --- -->
 <script>
-    // 1. Hàm lọc theo danh mục con (3.1, 3.2, 3.3)
     function filterCategory(category) {
-        // Cập nhật trạng thái active cho nút
         const buttons = document.querySelectorAll('.filter-btn');
         buttons.forEach(btn => btn.classList.remove('active'));
-        event.target.classList.add('active');
+        if(event) event.target.classList.add('active');
 
-        // Lọc bài viết
         const posts = document.querySelectorAll('.blog-post');
         posts.forEach(post => {
             if (category === 'all' || post.getAttribute('data-category') === category) {
@@ -427,9 +369,7 @@
         });
     }
 
-    // 2. Hàm lọc thông minh theo Hashtag khi người dùng click vào hashtag
     function filterHashtag(tag) {
-        // Đặt lại các nút danh mục về trạng thái không active (vì đang lọc chuyên sâu bằng tag)
         const buttons = document.querySelectorAll('.filter-btn');
         buttons.forEach(btn => btn.classList.remove('active'));
 
@@ -443,13 +383,12 @@
             }
         });
 
-        // Tự động cuộn mượt mà lên đầu khu vực blog để xem kết quả lọc
         document.getElementById('blog-content').scrollIntoView({ behavior: 'smooth' });
     }
 </script>
 
 <script>
-    const starColors = ['#FFF3A7', '#FFB7CE', '#AEE2FF']; // Vàng, Hồng, Xanh nước biển nhạt
+    const starColors = ['#FFF3A7', '#FFB7CE', '#AEE2FF'];
 
     window.addEventListener('click', function(e) {
         for (let i = 0; i < 5; i++) {
