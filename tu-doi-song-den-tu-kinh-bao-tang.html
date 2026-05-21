@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Từ đời sống đến tủ kính bảo tàng - How a fish dreamin'</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Đồng bộ Background và Vibe Hồng Pastel từ trang chủ */
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #ffe5ec 0%, #ffc2d1 50%, #f9bec7 100%);
+            min-height: 100vh;
+            margin: 0;
+            padding: 40px 20px;
+            color: #4a3b40;
+            line-height: 1.8;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        /* Hiệu ứng bong bóng bay phía sau */
+        .bubble-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            pointer-events: none;
+        }
+        .bubble {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.4);
+            border-radius: 50%;
+            bottom: -50px;
+            animation: floatUp 12s infinite linear;
+        }
+        @keyframes floatUp {
+            0% { transform: translateY(0) scale(1); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateY(-105vh) scale(1.2); opacity: 0; }
+        }
+
+        /* Khung chứa bài viết (Card giống trang chủ) */
+        .blog-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px 50px;
+            box-shadow: 0 10px 30px rgba(244, 143, 177, 0.25);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Nút quay lại trang chủ */
+        .back-home {
+            display: inline-block;
+            margin-bottom: 30px;
+            color: #ff5c8a;
+            text-decoration: none;
+            font-family: 'Comfortaa', cursive;
+            font-weight: bold;
+            font-size: 0.95rem;
+            transition: transform 0.3s ease;
+        }
+        .back-home:hover {
+            transform: translateX(-5px);
+        }
+
+        /* Header bài viết */
+        .entry-title {
+            font-family: 'Comfortaa', cursive;
+            font-size: 2rem;
+            color: #ff477e;
+            margin-top: 0;
+            margin-bottom: 15px;
+            line-height: 1.4;
+        }
+        .entry-meta {
+            font-size: 0.9rem;
+            color: #8a7379;
+            margin-bottom: 35px;
+            border-bottom: 2px dashed rgba(255, 71, 126, 0.2);
+            padding-bottom: 15px;
+        }
+
+        /* Định dạng nội dung bài tiểu luận */
+        .entry-content p {
+            text-align: justify;
+            margin-bottom: 20px;
+            font-size: 1.02rem;
+        }
+
+        /* Định dạng đầu mục to, in đậm và nổi bật */
+        .entry-content h2 {
+            font-family: 'Comfortaa', cursive;
+            font-size: 1.4rem;
+            color: #ff477e;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            font-weight: 700;
+            border-left: 4px solid #ff758f;
+            padding-left: 15px;
+        }
+        .entry-content h3 {
+            font-size: 1.15rem;
+            color: #ff5c8a;
+            margin-top: 25px;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+        .entry-content h4 {
+            font-size: 1.05rem;
+            color: #4a3b40;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        /* Danh sách tài liệu tham khảo */
+        .entry-content ul {
+            padding-left: 20px;
+            margin-bottom: 25px;
+        }
+        .entry-content li {
+            margin-bottom: 10px;
+        }
+
+        /* Responsive cho điện thoại */
+        @media (max-width: 768px) {
+            body { padding: 20px 10px; }
+            .blog-container { padding: 25px 20px; }
+            .entry-title { font-size: 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="bubble-bg">
+        <div class="bubble" style="width: 40px; height: 40px; left: 10%; animation-delay: 0s; animation-duration: 8s;"></div>
+        <div class="bubble" style="width: 20px; height: 20px; left: 25%; animation-delay: 2s; animation-duration: 11s;"></div>
+        <div class="bubble" style="width: 50px; height: 50px; left: 60%; animation-delay: 1s; animation-duration: 14s;"></div>
+        <div class="bubble" style="width: 35px; height: 35px; left: 80%; animation-delay: 4s; animation-duration: 9s;"></div>
+    </div>
+
+    <div class="blog-container">
+        <a href="index.html" class="back-home">← Quay lại trang chủ</a>
+        
+        <header>
+            <h1 class="entry-title">Từ đời sống đến tủ kính bảo tàng: Khoảng cách giữa nghệ thuật nguyên thuỷ và sự tiếp nhận hiện đại.</h1>
+            <div class="entry-meta">
+                Danh mục: How a fish dreamin' | Ngày upload: 18/12/2025 | Hashtag: #vanhoc
+            </div>
+        </header>
+
+        <main class="entry-content">
+            <h2>I. MỞ ĐẦU</h2>
+            <p>Trong xã hội hiện đại, nghệ thuật nói chung và các tác phẩm nghệ thuật nói riêng thường được tiếp cận thông qua các bảo tàng, các phòng trưng bày, triển lãm, phòng tranh hay quen thuộc nhất là thông qua sách vở và internet – nơi đa phần các tác phẩm đều được đóng khung, sắp đặt và tôn vinh như những hiện vật vô giá và có phần lạ lẫm. Cách lưu trữ và tiếp cận này tuy giúp cho nghệ thuật được bảo quản một cách hoàn hảo và lâu dài, nhưng đồng thời cũng khiến cho mối quan hệ giữa chính nghệ thuật và người thưởng thức thay đổi khá đáng kể. Dường như những thay đổi này lại có phần xa cách, khi nghệ thuật – từ chỗ gắn bó mật thiết với đời sống, với những mục đích cụ thể và những chức năng riêng biệt – dần trở thành đối tượng được đóng khung trưng bày hay đặt trong tủ kính để chiêm ngưỡng thuần tuý. Chính sự thay đổi về không gian, chức năng và hệ quy chiếu thẩm mỹ ấy đã đặt ra nguy cơ: nghệ thuật đang dần bị hiểu và tiếp cận lệch khỏi bản chất ban đầu của nó.</p>
+            <p>Xuất phát từ nhận định của E. Gombrich trong cuốn “Câu chuyện nghệ thuật”: “Một bức tranh trông thật xa cách khi người ta đóng khung lại, treo nó lên tường” (tr. 49), hay “đa phần các tác phẩm tranh, tượng mà ngày nay được xếp theo hàng trên tường trong bảo tàng và phòng tranh của chúng ta đã từng không được coi là nghệ thuật (tr. 49-50), ta có thể dễ dàng nhận thấy rằng nghệ thuật ban đầu vốn không được tạo ra với mục đích trở thành hiện vật bảo tàng hay những món đồ lạnh lẽo được trưng trong tủ kính để ngắm nghía và chiêm ngưỡng thuần tuý. Thông qua việc phân tích sự khác biệt và thay đổi giữa nghệ thuật của quá khứ và hiện đại, bài viết mong muốn làm rõ hơn sự khác biệt đó, đồng thời đưa đến một vài góc nhìn và cách hiểu đúng về nghệ thuật.</p>
+            <p>Mục tiêu của bài tiểu luận là góp phần hướng tới những góc nhìn cũng như cách hiểu đúng đắn hơn về nghệ thuật: không chỉ như những vật trưng bày lạnh lẽo trong bảo tàng, hay chỉ đơn thuần là những thứ để ngắm nhìn, mà như một đoạn lịch sử gần gũi, một kết tinh của đời sống thường nhật qua các thời kỳ riêng biệt gắn liền với cảm xúc và suy nghĩ của người làm ra nó; để từ đó thu hẹp hơn khoảng cách giữa người thưởng thức với nghệ thuật.</p>
+
+            <h2>II. NỘI DUNG CHÍNH</h2>
+            
+            <h3>1, Nghệ thuật trong bối cảnh ban đầu: bản chất và chức năng</h3>
+            
+            <h4>1.1. Nghệ thuật là gì</h4>
+            <p>Theo Giáo trình Nghệ thuật học đại cương (Trần Hinh & Hoàng Cẩm Giang): “Nghệ thuật là một hoạt động đặc thù của con người nhằm tạo ra thế giới hình tượng bên cạnh thế giới thực, để con người chiêm nghiệm, để thoả mãn thẩm mỹ, để thanh lọc tâm trạng, tâm hồn, tâm thế, tam thể theo quy luật cái Đẹp và cái Trác tuyệt (Sublime)” (tr. 13). Từ nhận định này, ta có thể rút ra được rằng: nghệ thuật là do con người, là một hoạt động đặc thù của con người mà trong đó nó gắn với sự sáng tạo, hay nói đơn giản hơn thì nó là một hoạt động sáng tạo có ý thức của con người. Bên cạnh đó, nghệ thuật tại cấu trúc hiện thực thành hình tượng, tạo ra một hình tượng mà hình tượng đó đi theo quy luật của cái Đẹp và cái Trác tuyệt. Cái đẹp và trác tuyệt mà ta đang bàn tới ở đây không nên được đặt theo hệ quy chiếu thông thường (hài hoà, xinh mắt,...), mà nên được gắn với các giá trị tinh thần, nội tâm sâu sắc, hay nói dễ hiểu hơn thì nghệ thuật không nhất thiết phải đẹp, nhưng phải được đánh giá trong bình diện thẩm mỹ. Nói tóm lại, giáo trình Nghệ thuật học đại cương nhận định rằng ta có thể định nghĩa nghệ thuật bằng khái niệm lý luận, đồng thời qua đó là nhấn mạnh giá trị, bản chất, chức năng và hiểu rằng nghệ thuật chính là một thế giới hình tượng mà ở đó con người là trung tâm.</p>
+            <p>Trong khi đó, Gombrich lại nhận định rằng: “Không có thứ gọi là Nghệ thuật. Chỉ tồn tại các nghệ sĩ.” (Câu chuyện nghệ thuật – tr. 19). Khác với giáo trình nghệ thuật học đại cương (Trần Hinh & Hoàng Cẩm Giang), Gombrich không đưa ra một định nghĩa cụ thể về nghệ thuật. Theo Gombrich, trước khi nghệ thuật được gọi là Nghệ thuật, thì nó có muôn vàn cách sử dụng và mục đích khác nhau. Với ông, nghệ thuật là một chuỗi quá trình lao động mà trong tâm là những người nghệ sĩ nhằm tạo ra một tác phẩm có mục đích sử dụng cụ thể. Và chỉ khi nghệ thuật được tách khỏi mục đích và bối cảnh ban đầu để đưa vào các khu trưng bày, thì nghệ thuật mới trở thành Nghệ thuật. Tựa hồ như một sự “huyền bí và tôn sùng”. Gombrich nhấn mạnh về việc nghệ thuật là sản phẩm của quyết định và lao động cá nhân, không nhất thiết phải đẹp nhưng cần được đặt trong hoàn cảnh, mục đích và cách sử dụng cụ thể để có thể hiểu được tường tận.</p>
+            <p>Vậy nên, ta có thể thấy rằng, dù ở bất kỳ nhận định hay cuốn sách nào, vai trò của con người, của người nghệ sĩ luôn là trung tâm và với Gombrich, không có cái gì gọi là Nghệ thuật, chỉ có nghệ thuật bị ép rời khỏi bản chất ban đầu của nó để trở thành Nghệ thuật. Điều đó cũng nhấn mạnh rằng, để hiểu đúng về nghệ thuật như nó vốn là, cần phải đặt nó vào đúng bối cảnh ra đời của nó, cần phải hiểu người nghệ sĩ – trung tâm của nghệ thuật.</p>
+
+            <h4>1.2. Chức năng của nghệ thuật</h4>
+            <p>Theo như giáo trình Nghệ thuật học đại cương (Trần Hinh, Hoàng Cẩm Giang), ta có thể tiếp cận chức năng của nghệ thuật theo một hệ thống lý luận tương đối ổn định. Giáo trình coi nghệ thuật là một hình thái ý thức xã hội, vì vậy nên chức năng của nghệ thuật được phân loại và xác định rất dễ dàng. Đó bao gồm:</p>
+            <p><strong>Chức năng thẩm mỹ:</strong> thoả mãn nhu cầu thẩm mỹ của con người, đồng thời với đó là giúp con người có thể ngẫm nghĩ, chiêm nghiệm về đời sống.<br>
+            <strong>Chức năng phản ánh hiện thực:</strong> phản ánh hiện thực bằng hình tượng, giúp cho con người hiểu, thấu cảm với xã hội và con người của các thời kỳ khác nhau.<br>
+            <strong>Chức năng giáo dục:</strong> giáo dục của nghệ thuật không thô thiển rằng con người tìm đến nghệ thuật với mong muốn giáo dục cụ thể, mà thông qua các tác phẩm nghệ thuật, con người hiểu biết hơn về thế giới, vũ trụ và con người bên ngoài.<br>
+            <strong>Chức năng giải trí:</strong> ta có thể nói rằng đây là chức năng cơ bản nhất của nghệ thuật, rằng “khởi đầu, thậm chí nghệ thuật sinh ra là để phục vụ nhu cầu thuần tuý giải trí của con người” (Giáo trình Nghệ thuật học đại cương – Trần Hinh, Hoàng Cẩm Giang – tr. 20).</p>
+            <p>Còn theo Gombrich, ông không xây dựng một hệ thống chức năng và tác dụng cụ thể, mà tiếp cận nghệ thuật một cách linh hoạt thông qua lịch sử và đặt nghệ thuật vào bối cảnh ban đầu của nó để nhìn nhận và đánh giá một cách linh hoạt, cụ thể. Gombrich viết: “Chúng được tạo ra cho một dịp nhất định và một mục đích nào đó hiện hữu trong tâm trí người hoạ sĩ khi ông bắt tay tạo ra nó.” (tr. 49-50) hay: “Nhưng ban đầu, các tác phẩm ấy được làm ra để được chạm vào và sử dụng.” (Câu chuyện nghệ thuật – tr. 49). Điều đó cho thấy rằng Gombrich không đóng khung chức năng của nghệ thuật theo những định nghĩa cố định, mà thông qua việc phân tích bối cảnh ra đời của tác phẩm cũng như mục đích sử dụng vốn có của chúng, ông chỉ ra rằng nghệ thuật ban đầu vốn để phục vụ các mục đích cụ thể như tôn giáo (các bức tranh tường, các ô cửa sổ lắp kính màu trong các nhà thờ mang phong cách Gothic như nhà thờ Notre-Dame ở Paris, Pháp,...) với mục đích kể và truyền tải các câu chuyện Kinh Thánh cho các tín đồ mù chữ; hay nghi lễ (như bức tượng các vị thần Hy Lạp cổ đại được đặt sâu trong các đền thờ) với mục đích phục vụ các nghi lễ và làm nơi trú ngụ cho thần linh theo tín ngưỡng.</p>
+            <p>Nếu giáo trình Nghệ thuật học đại cương (Trần Hinh, Hoàng Cẩm Giang) xác định chức năng của nghệ thuật trên bình diện thẩm mỹ, nhận thức và xã hội, thì E. Gombrich lại đặt nghệ thuật trở về với những mục đích cụ thể mà nó từng phục vụ trong đời sống. Sự khác biệt này cho thấy nguy cơ trong bối cảnh hiện đại: khi nghệ thuật bị tách khỏi những chức năng ban đầu và chỉ còn được tiếp nhận như một đối tượng thẩm mỹ thuần tuý, bản chất sống động và đa chức năng của nghệ thuật có thể bị hiểu lệch đi, đúng như điều mà Gombrich đã cảnh báo.</p>
+
+            <h3>2, Sự thay đổi trong cách tiếp nhận nghệ thuật</h3>
+            
+            <h4>2.1. Không gian bảo tàng, phòng tranh,... và sự tách rời của nghệ thuật khỏi đời sống.</h4>
+            <p>Trong cuốn “Câu chuyện nghệ thuật”, Gombrich có viết: “Thật trớ trêu thay, các bảo tàng lẫn các cuốn sách lịch sử nghệ thuật đều có thể góp phần gia tăng mối nguy này”. Mối nguy này chính là việc làm tưởng tất cả các tác phẩm nghệ thuật đều là nghệ thuật chính thống, rằng từ thân nó từ khi sinh ra đã là nghệ thuật. Trong bối cảnh hiện đại, nghệ thuật chủ yếu được tiếp nhận qua các không gian trưng bày mà phổ biến nhất là bảo tàng – nơi nghệ thuật được đóng khung, treo lên tường, sắp đặt theo thứ tự kèm theo những quy định nghiêm ngặt về khoảng cách và hành vi của người thưởng thức. Điều này đã vô hình chung tạo ra sự thay đổi căn bản trong mối quan hệ giữa con người và nghệ thuật.</p>
+            <p>Trong lịch sử, nghệ thuật không tồn tại như một đối tượng độc lập để con người chiêm ngưỡng và ngắm nhìn thuần tuý, mà gắn bó mật thiết với cuộc sống và các không gian sinh hoạt cộng đồng. Tranh tường, phù điêu,... hay thậm chí là một chiếc bát được chạm trổ hoa văn đều từng là một phần của các đền thờ, quảng trường, các không gian quen thuộc trong gia đình – vốn là những sự hiện diện quen thuộc trong đời sống con người. Nghệ thuật vốn gần gũi, đồng thời mang trong mình ý nghĩa tinh thần và biểu tượng của thời đại. Tuy nhiên, trong xã hội hiện đại, nghệ thuật dần bị “cao cấp hoá” bằng cách đặt chúng tập trung vào các bảo tàng và phòng trưng bày. Tại đây, nghệ thuật bị tách ra khỏi môi trường nguyên thuỷ của nó, được đóng khung, đặt trên bệ, được canh phòng cẩn mật bằng các quy định nghiêm ngặt. Việc trưng bày và bảo tồn này cần thiết cho việc lưu giữ các di sản, nhưng đồng thời cũng tạo ra khoảng cách đáng kể giữa bản thân nghệ thuật và người thưởng thức chúng.</p>
+            <p>E. Gombrich cho rằng, khi một bức tranh được đóng khung và treo lên, nó trở nên thật xa cách và lạ lẫm. Sự xa cách ấy không chỉ là về mặt vật lý – khi người thưởng thức không còn được trực tiếp chạm tay hay tiếp cận gần với tác phẩm, điều vốn vô cùng phổ biến và bình thường khi tác phẩm được đặt trong đúng thời đại và hoàn cảnh ra đời của nó, mà còn là sự xa cách về mặt tinh thần, khi mà nghệ thuật không còn được cảm nhận như một điều gần gũi trong đời sống, mà là một hiện vật ở trên cao, hoàn toàn mới mẻ và xa lạ.</p>
+
+            <h4>2.2. Sự chuyển đổi vai trò của người tiếp nhận nghệ thuật</h4>
+            <p>Song song với sự thay đổi của không gian nghệ thuật là sự thay đổi trong vai trò của người thưởng thức nghệ thuật. Trong bối cảnh truyền thống, con người tiếp xúc với nghệ thuật như một phần tự nhiên của đời sống: họ cầu nguyện với tượng thần, sinh hoạt trong không gian được trang trí bằng những bức tranh mà có lẽ họ cũng chẳng ngờ được vài trăm năm sau nó sẽ được đem đi đấu giá với một số tiền khổng lồ, hay thậm chí sử dụng những chiếc cốc, chiếc bát được chạm trổ tinh xảo mà thời nay được trưng bày như bảo vật trong cuộc sống hằng ngày. Nghệ thuật khi ấy gần gũi, được tiếp nhận thông qua niềm tin và các thói quen sinh hoạt hằng ngày.</p>
+            <p>Ngược lại, trong bối cảnh hiện đại, người tiếp nhận nghệ thuật chủ yếu đóng vai trò của một khán giả thụ động thay vì trực tiếp cảm nhận hay thậm chí sống trong nó như trong quá khứ. Họ đứng trước một tác phẩm nghệ thuật, quan sát, suy ngẫm và đánh giá nó như một vật xa lạ và hiếm khi được phép tương tác trực tiếp với nó. Sự tiếp nhận này mang tính tri thức và chiêm nghiệm, song cũng dễ dẫn đến việc tách nghệ thuật ra khỏi những trải nghiệm sống động vốn có của nó.</p>
+            <p>Sự thay đổi này khiến nghệ thuật dễ bị hiểu như một lĩnh vực dành riêng cho những người có kiến thức chuyên môn hoặc có khả năng thưởng thức thẩm mỹ nhất định. Điều đó vô tình tạo ra một khoảng cách giữa nghệ thuật và đời sống đại chúng, khiến nghệ thuật dần trở nên lạ lẫm so với những chức năng ban đầu mà nó từng đảm nhận.</p>
+
+            <h4>2.3. Sự biến đổi chức năng của nghệ thuật trong quá trình tiếp nhận.</h4>
+            <p>Sự thay đổi trong cách tiếp nhận tất yếu dẫn đến sự biến đổi trong việc hiểu về chức năng của nghệ thuật. Theo Gombrich, phần lớn các tác phẩm trong lịch sử được tạo ra với mục đích cụ thể như phục vụ cho tôn giáo, các nghi lễ, chính trị hay thậm chí là đời sống thường nhật. Chức năng của chúng – kể từ lúc ra đời – đều là để phục vụ cho con người không chỉ trong đời sống tinh thần mà còn trong đời sống thường nhật. Khi những tác phẩm này được đưa vào bảo tàng, những chức năng nguyên thuỷ ấy dần bị mai một và che khuất. Nghệ thuật lúc này chủ yếu được tiếp nhận thông qua một khu vực trưng bày nhất định, thuần tuý như một đối tượng thẩm mỹ, phục vụ nhu cầu chiêm ngưỡng và đánh giá. Chức năng thẩm mỹ, theo như giáo trình Nghệ thuật học đại cương, vốn chỉ là một trong nhiều chức năng của nghệ thuật, lại trở thành chức năng gần như duy nhất được nhấn mạnh trong quá trình tiếp nhận hiện đại.</p>
+            <p>Điều này dẫn tới nguy cơ giản lược bản chất của nghệ thuật, khi người thưởng thức chỉ quan tâm tới nghệ thuật “mới” mà ở đây là hình thức và vẻ đẹp trong khi bỏ qua và quên đi mục đích sử dụng và ý nghĩa xã hội của chúng. Sự giản lược ấy khiến con người dễ hiểu sai bản chất của nghệ thuật.</p>
+
+            <h4>2.4. Áp đặt hệ quy chiếu thẩm mỹ hiện đại lên nghệ thuật của quá khứ.</h4>
+            <p>Một hệ quả khác của sự thay đổi cách tiếp nhận nghệ thuật là việc áp đặt các tiêu chuẩn thẩm mỹ hiện đại lên những tác phẩm được sáng tạo trong quá khứ. Khi tiếp nhận nghệ thuật trong không gian bảo tàng, người xem cũng thường sử dụng các khái niệm thẩm mỹ đương đại như cái đẹp, sự sáng tạo cá nhân hay tính độc đáo của một tác phẩm để đánh giá chúng. Ví dụ như tôi, trong một lần tham quan bảo tàng Mỹ thuật Việt Nam, cũng đã không hiểu tại sao một bức tranh trông có vẻ lấm nhem và trừu tượng lại được trưng bày trong bảo tàng. Tuy nhiên, theo Gombrich, những tiêu chí ấy không phải lúc nào cũng phù hợp để đánh giá nghệ thuật của quá khứ. Một ví dụ điển hình chính là Vincent van Gogh – người được nhớ tới như một hoạ sĩ quan trọng nhưng có cuộc đời bi thảm. Chắc hẳn Vincent van Gogh lúc đó cũng chẳng ngờ được, những tác phẩm bị coi là rác rưởi của mình lúc đó sau này lại được chú ý, rao bán và đẩy giá lên tới hàng triệu đô la. Đó chỉ là một trong vô vàn những ví dụ để cho thấy rằng chưa chắc những gì chúng ta coi là nghệ thuật bây giờ đã được coi là nghệ thuật vào thời điểm nó ra đời và ngược lại, và rằng tiêu chuẩn thẩm mỹ bây giờ chỉ là một phần rất nhỏ nếu muốn hiểu về nghệ thuật.</p>
+            <p>Nhiều tác phẩm trong lịch sử không hướng tới sự độc đáo hay biểu đạt màu sắc cá nhân, mà nhằm tuân thủ các quy ước tôn giáo, lễ nghi hay chính trị. Việc áp đặt các chuẩn mực thẩm mỹ hiện đại lên những tác phẩm này có thể dẫn đến sự hiểu lầm, thậm chí đánh giá sai giá trị của chúng. Chính vì vậy, Gombrich nhấn mạnh rằng, để hiểu được nghệ thuật, người xem cần đặt mình vào hoàn cảnh lịch sử cụ thể, thay vì chỉ dựa vào những chuẩn mực thẩm mỹ quen thuộc của hiện tại.</p>
+
+            <h2>III. KẾT LUẬN</h2>
+            <p>Qua việc phân tích luận điểm của E. Gombrich trong cuốn “Câu chuyện nghệ thuật” và đối chiếu với cách tiếp cận trong giáo trình Nghệ thuật học đại cương, có thể thấy rằng nghệ thuật trong bối cảnh hiện đại đang đứng trước nguy cơ bị tiếp nhận lệch khỏi bản chất vốn có của nó. Sự thay đổi về không gian trưng bày, đặc biệt là việc đưa nghệ thuật vào bảo tàng – vốn dĩ mục đích là để đem nghệ thuật lại gần hơn với công chúng – vô tình lại khiến cho mối quan hệ ấy trở nên xa cách hơn. Từ chỗ gắn bó mật thiết với các hoạt động tôn giáo, nghi lễ, chính trị và sinh hoạt thường nhật, nghệ thuật dần trở thành đối tượng chiêm ngưỡng thuần tuý, đồng thời với đó là bị tách ra khỏi mục đích sử dụng ban đầu. Những biến đổi ấy kéo theo sự thay đổi về cách hiểu chức năng của nghệ thuật, từ việc mang trong mình các chức năng khác biệt, thì giờ chỉ còn chức năng thẩm mỹ được đề cao. Nếu giáo trình nhấn mạnh các chức năng thẩm mỹ, nhận thức và giáo dục như những vai trò tương đối ổn định của nghệ thuật, thì Gombrich lại lồng vào đó cả tính lịch sử và tính linh hoạt của các chức năng này. Việc chỉ tập trung vào chức năng thẩm mỹ trong quá trình tiếp nhận nghệ thuật thời hiện đại đã khiến cho nghệ thuật dường như bị giản lược, làm mờ đi những chức năng xã hội và tinh thần thời đại mà tác phẩm mang trong mình. Bên cạnh đó, việc áp đặt hệ quy chiếu thẩm mỹ hiện đại lên những tác phẩm quá khứ cũng góp phần làm sai lệch cách hiểu về nghệ thuật. Khi người thưởng thức đánh giá tác phẩm dựa trên tiêu chí xấu - đẹp hoặc giá trị hình thức, họ dễ bỏ qua việc đặt mình vào để hiểu xem người nghệ sĩ có những quyết định gì trong thời điểm đó. Gombrich đã viết trong cuốn “Câu chuyện nghệ thuật” rằng: “Nó cho thấy chúng ta nên đánh giá nghệ thuật dưới góc độ lịch sử như thế nào.” (tr. 11) hay: “Chúng ta cũng nên nhớ rằng từng chi tiết, đặc điểm của mỗi bức tranh đều được thai nghén từ những quyết định của hoạ sĩ.” Chính những quyết định ấy, như Gombrich nhấn mạnh, mới là yếu tố cấu thành nên hình thức và ý nghĩa của tác phẩm.</p>
+            <p>Từ đó, ta có thể khẳng định rằng ý kiến của Gombrich không phủ nhận giá trị của bảo tàng hay việc thưởng thức nghệ thuật trong xã hội hiện đại, mà nhắc nhở người xem cần tiếp cận nghệ thuật một cách thận trọng và đúng cách. Việc “hiểu” nghệ thuật không chỉ dừng lại ở chiêm ngưỡng hình thức, mà đòi hỏi phải đặt tác phẩm trở lại trong bối cảnh ra đời, mục đích sử dụng và hơn cả là những lựa chọn sáng tạo của nghệ sĩ. Bởi lẽ, không có nghệ thuật, chỉ có nghệ sĩ, và chỉ khi làm được điều đó, nghệ thuật mới có thể được tiếp nhận đúng với bản chất sống động và đa chức năng của mình.</p>
+
+            <h2>IV. TÀI LIỆU THAM KHẢO</h2>
+            <ul>
+                <li>Giáo trình Nghệ thuật học đại cương (Trần Hinh, Hoàng Cẩm Giang)</li>
+                <li>Câu chuyện nghệ thuật (E. Gombrich)</li>
+            </ul>
+        </main>
+    </div>
+
+</body>
+</html>
