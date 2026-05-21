@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bản Hòa Âm Của Thiên Hà Và Biển Tình - Umino Erika</title>
+    <style>
+        /* --- ĐỒNG BỘ CẤU HÌNH RETRO JAPANESE PASTEL TỪ TRANG CHỦ --- */
+        @import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;700&family=Space+Grotesk:wght@400;700&display=swap');
+
+        :root {
+            --bg-pink: #FFD1DC;
+            --panel-blue: #EBF3F5;
+            --accent-orange: #FF8C42;
+            --text-dark: #2E3142;
+            --border-color: #8fa4ad;
+            --white: #FFFFFF;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Comfortaa', 'Space Grotesk', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-pink);
+            color: var(--text-dark);
+            padding: 40px 20px;
+            line-height: 1.9;
+            background-image: url('quality_restoration_20260521021539118.png');
+            background-attachment: fixed;
+            background-size: cover;
+            background-position: center;
+            overflow-x: hidden;
+        }
+
+        /* Khung chứa bong bóng toàn màn hình */
+        .bubble-container {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            overflow: hidden;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        .bubble {
+            position: absolute;
+            bottom: -50px;
+            background: rgba(235, 243, 245, 0.35);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            border-radius: 50%;
+            box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.6);
+            animation: floatUp 8s infinite linear;
+        }
+
+        .bubble::after {
+            content: ''; position: absolute; top: 20%; left: 20%; width: 25%; height: 25%;
+            background: rgba(255, 255, 255, 0.6); border-radius: 50%;
+        }
+
+        @keyframes floatUp {
+            0% { transform: translateY(0) translateX(0); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateY(-110vh) translateX(50px); opacity: 0; }
+        }
+
+        .container { max-width: 900px; margin: 0 auto; }
+
+        /* --- HEADER KHUNG CÁ ĐỐI XỨNG AN TOÀN --- */
+        header {
+            text-align: center;
+            padding: 40px 50px;
+            background: rgba(235, 243, 245, 0.85);
+            border: 4px solid var(--border-color);
+            border-radius: 20px;
+            position: relative;
+            box-shadow: 6px 6px 0px var(--border-color);
+            margin-bottom: 30px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        header h1 {
+            font-size: 1.8rem;
+            color: var(--text-dark);
+            font-weight: 700;
+            line-height: 1.4;
+            max-width: 85%;
+        }
+
+        header p { font-size: 0.85rem; color: #5c4d50; font-weight: 500; }
+
+        /* Định dạng chú cá vàng hoạt hình */
+        .fish-decor {
+            position: absolute;
+            width: 40px;
+            height: 25px;
+            background: var(--accent-orange);
+            border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+        }
+        .fish-decor::after {
+            content: ''; position: absolute; right: -8px; top: 5px; width: 0; height: 0;
+            border-top: 8px solid transparent; border-bottom: 8px solid transparent;
+            border-left: 12px solid var(--accent-orange);
+        }
+        .fish-decor::before {
+            content: ''; position: absolute; left: 8px; top: 6px; width: 4px; height: 4px;
+            background: var(--text-dark); border-radius: 50%;
+        }
+
+        .fish-1 { top: 12px; left: 15px; transform: rotate(-10deg); }
+        .fish-2 { bottom: 12px; right: 15px; transform: rotate(15deg); }
+
+        /* --- NÚT QUAY LẠI TRANG CHỦ ĐỒNG BỘ --- */
+        .back-nav { margin-bottom: 25px; }
+        .back-btn {
+            background: var(--white);
+            padding: 10px 20px;
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: bold;
+            border: 3px solid var(--border-color);
+            border-radius: 12px;
+            box-shadow: 4px 4px 0px var(--border-color);
+            display: inline-block;
+            transition: all 0.2s ease;
+            cursor: pointer;
+        }
+        .back-btn:hover {
+            transform: translate(2px, 2px);
+            box-shadow: 2px 2px 0px var(--border-color);
+            background: #F4C2D7;
+        }
+
+        /* --- KHUNG KÍNH MỜ CHỨA NỘI DUNG TẢN VĂN --- */
+        .content-box {
+            background: rgba(255, 255, 255, 0.85);
+            border: 4px solid var(--border-color);
+            border-radius: 20px;
+            padding: 45px;
+            box-shadow: 6px 6px 0px var(--border-color);
+        }
+
+        /* Chữ mỏng nhẹ (weight 300) thụt dòng học thuật */
+        .fragment-p {
+            font-weight: 300;
+            font-size: 0.98rem;
+            margin-bottom: 22px;
+            text-align: justify;
+            text-indent: 25px;
+        }
+
+        /* --- KÝ HIỆU PHÂN CHIA ĐOẠN TẢN MẠN XINH XẮN --- */
+        .divider {
+            text-align: center;
+            margin: 40px 0;
+            color: var(--border-color);
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            opacity: 0.8;
+            user-select: none;
+        }
+
+        .small-fish {
+            display: inline-block;
+            width: 20px;
+            height: 12px;
+            background: var(--accent-orange);
+            border-radius: 50%;
+            position: relative;
+        }
+        .small-fish::after {
+            content: ''; position: absolute; right: -4px; top: 3px;
+            border-left: 6px solid var(--accent-orange); border-top: 3px solid transparent; border-bottom: 3px solid transparent;
+        }
+
+        /* --- HIỆU ỨNG NGÔI SAO LẤP LÁNH KHI CLICK --- */
+        .click-star {
+            position: absolute; width: 38px; height: 38px; pointer-events: none;
+            animation: popOut 0.8s ease-out forwards;
+        }
+        .click-star::before {
+            content: ''; position: absolute; width: 100%; height: 100%;
+            background-color: var(--star-color);
+            clip-path: polygon(50% 0%, 65% 35%, 100% 50%, 65% 65%, 50% 100%, 35% 65%, 0% 50%, 35% 35%);
+        }
+
+        @keyframes popOut {
+            0% { transform: translate(-50%, -50%) scale(0) rotate(0deg); opacity: 1; }
+            100% { transform: translate(var(--mx), var(--my)) scale(1.2) rotate(180deg); opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+    <div class="bubble-container"></div>
+
+    <div class="container">
+        <header>
+            <div class="fish-decor fish-1"></div>
+            <h1>Star Upon </h1>
+            <p>Ngày đăng: 11/7/2025 | Tác giả: Umino Erika</p>
+            <div class="fish-decor fish-2"></div>
+        </header>
+
+        <nav class="back-nav">
+            <a href="index.html" class="back-btn">← Quay lại chiếc bể cá lớn</a>
+        </nav>
+
+        <main class="content-box">
+            
+            <div class="blog-fragment">
+                <p class="fragment-p">“Em không sợ,” giọng em khẽ như tiếng tuyết đầu mùa mơ màng tan chảy, ánh mắt long lanh như đựng đầy cả sao trời ngước nhìn hắn với tất cả sự dịu dàng. Em mỉm cười, nụ cười nhẹ tênh như cơn mưa rào bất chợt của mùa hạ, trong trẻo, mong manh và yêu kiều tới độ thời gian cũng như ngừng trôi bởi ánh nhìn chứa chan tựa hồ có thể vỡ ra cả biển tình. “Dù ngài có thế nào... em vẫn không sợ.”</p>
+                <p class="fragment-p">“Wriothesley, em yêu ngài, yêu cả sự vụng về trong cách ngài thương em.”</p>
+                <p class="fragment-p">Phải rồi. Hắn đã thua em rồi. Thua sự dịu dàng, đáng yêu tựa ánh mai những ngày nắng hạ, thua ánh cười lảnh lót và đôi mắt trong veo như bầu trời. Thua cái ôm mềm mại nhưng lại khiến tất cả lý trí trong hắn gãy vụn như băng mỏng dưới ánh mặt trời, và hơn cả, hắn chịu thua sự quan tâm mềm mại mà em dành cho mình, một tình yêu thầm lặng, kiên cường tới độ khiến trái tim hắn run lên từng hồi. Công tước Wriothesley, người mà ai ai cũng khiếp sợ, lần đầu tiên trong đời nhận ra mình không còn muốn làm kẻ bất khả xâm phạm như hắn vẫn luôn là. Hắn muốn được ôm lại, muốn để em ở gần, thật gần.</p>
+            </div>
+
+            <div class="divider">🫧 ✦ <span class="small-fish"></span> ✦ 🫧</div>
+
+            <div class="blog-fragment">
+                <p class="fragment-p">Wriothesley đang đứng đó - vị chúa tể sắc sảo và nghiêm nghị từng khiến không biết bao nhiêu người run sợ bởi ánh mắt sắc lạnh như băng ngầm và sự tàn nhẫn tới ghê người - giờ đây lại lặng lẽ nhìn em với ánh mắt mềm mại và êm ả như lớp lớp thủy triều. Không mang theo bóng tối trầm mặc, không giăng theo sấm sét bức người, hắn đứng đó, dáng vẻ lặng thầm và ánh mắt sâu như vực biển, đôi tay trần đưa ra, chậm rãi mà thành khẩn, như trông đợi, như mong chờ, như có chút run rẩy của một kẻ đang mông lung trước mối tình đầu. Và lời hắn khẽ vang lên, không lạnh lẽo, lạnh đạm như mọi ngày mà nhẹ bẫng như tiếng gió hạ khẽ thoảng, dịu dàng như tiếng tuyết tan đầu mùa, từng câu, từng từ khiến trái tim em yếu ớt rung lên từng hồi:</p>
+                <p class="fragment-p">“Liệu ta có thể mời em nhảy một bài không?”</p>
+                <p class="fragment-p">Em khẽ gật đầu, bàn tay nhỏ nhắn trắng ngần lọt thỏm trong lòng bàn tay to lớn và thô ráp ấy. Hắn dịu dàng nắm lấy, nửa như muốn tham lam chiếm hữu, nửa như sợ em sẽ bất chợt tan đi như một khúc mơ hoài. Và rồi, trong một khoảnh khắc tưởng chừng như vô thực, khi ánh trăng chảy dài trên tóc em những mộng mơ bàng bạc, khi đêm rơi xuống đại dương những ánh sao long lanh tựa giấc mộng thủy triều, em khẽ ngẩng đầu, ánh mắt trong veo như đang cười bắt gặp đôi mắt màu băng của hắn khẽ mơ màng tan chảy. Ánh mắt ấy đẹp và sâu thẳm thẳm, ngẩn ngơ tới ngạt thở, như băng ngầm nứt ra những xúc cảm cháy bỏng, như hoa thơm ngây ngô đậu xuống mặt nước trong veo và rất đỗi dịu dàng. Giữa tiếng sóng rì rào vỗ nhẹ nhẹ và ánh trăng loang loáng trên mặt biển, em nhìn hắn và mỉm cười, nụ cười trong vắt như mặt biển, yêu kiều và đáng yêu tới xao xuyến tâm hồn.</p>
+                <p class="fragment-p">Và rồi, bàn tay to lớn của hắn đặt nhẹ lên eo em, khẽ khàng và nâng niu như sợ em sẽ tan biến đi như một giấc mộng. Giữa đêm đen lặng lẽ như hòa vào làm một cùng mặt biển loang loáng những vì sao tinh nghịch, hắn cùng em nương theo bản hòa âm bao la của thiên hà. Mảnh trăng non vắt lên bờ cát mịn một sắc bạc như vô thực, biển tấu lên giữa không gian mênh mang khúc tình ca không tên mà dịu dàng. Khoảnh khắc ấy, hắn thấy gió lay tà váy em êm ả như dải lụa, đẹp tới độ hắn tưởng như bản thân đang trôi đi theo một giấc mộng xa vời. Cả thế giới đọng lại nơi đáy mắt em, long lanh và yêu kiều tới ngạt thở, như vô ý, như lững lờ tinh nghịch họa những nét ngọt ngào vào đêm đen sâu thẳm thẳm. Thời gian chợt ngừng trôi trong một thoáng rất nhỏ, chỉ còn mái tóc em bồng bềnh trong gió biển in sâu vào tiềm thức hắn như một mảnh kí ức vô giá mà dịu dàng.</p>
+            </div>
+
+            <div class="divider">🫧 ✦ <span class="small-fish" style="transform: scaleX(-1);"></span> ✦ 🫧</div>
+
+            <div class="blog-fragment">
+                <p class="fragment-p">Ban đầu, em không thích thứ trà lạnh lẽo ấy. Em yêu thứ trà ngọt ngào và thanh dịu như trà nhài, dư vị buốt lạnh của bạc hà khiến em không khỏi rùng mình mỗi khi nếm thử. Nhưng rồi một ngày, em nhận ra mình vẫn rót nước sôi vào tách, vẫn thả vào đó một nhúm lá bạc hà, lặng lẽ chờ đợi hương thơm dịu mát lan ra khắp căn phòng nhỏ. Thức trà ấy khiến em nhớ tới một người, một người có đôi mắt màu băng lạnh, giọng nói khô khốc và lãnh đạm như thể chẳng có chút cảm xúc nào. Trái tim em chẳng đủ can đảm để gọi tên người, cũng chẳng đủ dũng khí để mạnh mẽ buông tay. Chỉ là, những thứ em làm chẳng hiểu vì sao luôn đều đặn hằng đêm, như hơi thở lặng thinh giữa đêm trường mênh mang, như nỗi nhớ xôn xao cứ âm ỉ rực cháy.</p>
+                <p class="fragment-p" style="font-weight: bold; text-align: center; text-indent: 0; color: #c2255c; margin-top: 30px;">Em không biết rằng mình đang yêu.</p>
+            </div>
+
+        </main>
+
+        <footer style="text-align: center; padding: 20px; margin-top: 40px; font-size: 0.9rem; opacity: 0.8;">
+            <p>© Umino Erika </p>
+        </footer>
+    </div>
+
+<script>
+    // Đồng bộ hiệu ứng click chuột tạo sao lấp lánh 
+    const starColors = ['#FFF3A7', '#FFB7CE', '#AEE2FF'];
+
+    window.addEventListener('click', function(e) {
+        for (let i = 0; i < 5; i++) {
+            const star = document.createElement('div');
+            star.className = 'click-star';
+            
+            const randomColor = starColors[Math.floor(Math.random() * starColors.length)];
+            star.style.setProperty('--star-color', randomColor);
+            
+            star.style.left = e.pageX + 'px';
+            star.style.top = e.pageY + 'px';
+            
+            const moveX = (Math.random() - 0.5) * 80 - 50;
+            const moveY = (Math.random() - 0.5) * 80 - 50;
+            star.style.setProperty('--mx', moveX + '%');
+            star.style.setProperty('--my', moveY + '%');
+            
+            const size = Math.random() * 30 + 20;
+            star.style.width = size + 'px';
+            star.style.height = size + 'px';
+            
+            document.body.appendChild(star);
+            
+            setTimeout(() => { star.remove(); }, 800);
+        }
+    });
+
+    // Đồng bộ hiệu ứng bong bóng bay tự động
+    function createBubbles() {
+        const container = document.querySelector('.bubble-container');
+        if (!container) return;
+        const bubbleCount = 15; 
+        
+        for (let i = 0; i < bubbleCount; i++) {
+            let bubble = document.createElement('div');
+            bubble.classList.add('bubble');
+            
+            let size = Math.random() * 30 + 15;
+            bubble.style.width = `${size}px`;
+            bubble.style.height = `${size}px`;
+            bubble.style.left = `${Math.random() * 100}%`;
+            
+            bubble.style.animationDuration = `${Math.random() * 6 + 6}s`;
+            bubble.style.animationDelay = `${Math.random() * 5}s`;
+            
+            container.appendChild(bubble);
+        }
+    }
+    window.addEventListener('DOMContentLoaded', createBubbles);
+</script>
+</body>
+</html>
