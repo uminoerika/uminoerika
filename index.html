@@ -274,11 +274,10 @@
         /* Dòng tóm tắt */
         .blog-post-content p {
             margin: 0;
-            font-size: 0.95rem;
-            display: -webkit-box;
-            -webkit-line-clamp: 2; /* Giới hạn tối đa 2 dòng tóm tắt cho gọn gàng */
-            -webkit-box-orient: vertical;
-            overflow: hidden;
+            font-size: 0.88rem; /* Hạ size chữ nhỏ xuống một chút để thanh thoát, vừa vặn */
+            display: block;     /* Đưa về dạng khối thông thường để hiện đầy đủ chữ */
+            overflow: visible;  /* Cho phép chữ hiển thị thoải mái không bị che giấu */
+            text-align: justify; /* Căn đều hai bên cho các bài viết dài nhìn ngay ngắn, chuẩn học thuật */
         }
 
         /* Responsive cho điện thoại (Xếp chồng ảnh lên trên chữ nếu màn hình nhỏ) */
@@ -423,7 +422,7 @@
                         <img src="quality_restoration_20260521220714290.jpg">
                     </div>
                     <div class="blog-post-content">
-                        <h3><a href="tu-doi-song-den-tu-kinh-bao-tang.html" style="text-decoration: none; color: inherit;">Từ đời sống đến tủ kính bảo tàng: Khoảng cách giữa nghệ thuật nguyên thuỷ và sự tiếp nhận hiện đại.</a></h3>
+                        <h3><a href="tu-doi-song-den-tu-kinh-bao-tang.html" style="text-decoration: none; color: inherit;">Khoảng cách giữa nghệ thuật nguyên thuỷ và sự tiếp nhận hiện đại.</a></h3>
                         <div class="meta-info">Danh mục: How a fish dreamin' | Ngày đăng: 18/12/2025</div>
                         <p>Nghệ thuật trong bối cảnh hiện đại đang có nguy cơ bị tiếp nhận sai lệch khỏi bản chất ban đầu của nó do sự thay đổi về không gian, chức năng và hệ quy chiếu thẩm mỹ.</p>
                         <div class="hashtag-container">
