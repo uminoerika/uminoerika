@@ -8,14 +8,16 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        /* Đồng bộ Background và Vibe Hồng Pastel từ trang chủ */
+        /* Đồng bộ Ảnh nền (Background) từ trang chủ */
         body {
             font-family: 'Inter', sans-serif;
-            background: linear-gradient(135deg, #ffe5ec 0%, #ffc2d1 50%, #f9bec7 100%);
+            /* Sử dụng ảnh nền có sẵn của Chi */
+            background: url('quality_restoration_20260521021539118.png') no-repeat center center fixed;
+            background-size: cover;
             min-height: 100vh;
             margin: 0;
             padding: 40px 20px;
-            color: #4a3b40;
+            color: #2b1f22; /* Tăng độ đậm của chữ một chút để rõ ràng hơn trên nền trong suốt */
             line-height: 1.8;
             position: relative;
             overflow-x: hidden;
@@ -33,7 +35,7 @@
         }
         .bubble {
             position: absolute;
-            background: rgba(255, 255, 255, 0.4);
+            background: rgba(255, 255, 255, 0.35);
             border-radius: 50%;
             bottom: -50px;
             animation: floatUp 12s infinite linear;
@@ -45,16 +47,17 @@
             100% { transform: translateY(-105vh) scale(1.2); opacity: 0; }
         }
 
-        /* Khung chứa bài viết (Card giống trang chủ) */
+        /* Khung chứa bài viết (Trong suốt và làm mờ kính giống trang chủ) */
         .blog-container {
             max-width: 800px;
             margin: 0 auto;
-            background: rgba(255, 255, 255, 0.85);
-            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.65); /* Độ trong suốt vừa vặn giống trang chủ */
+            backdrop-filter: blur(15px); /* Làm mờ hậu cảnh giúp chữ cực kỳ nổi bật và dễ đọc */
+            -webkit-backdrop-filter: blur(15px);
             border-radius: 20px;
             padding: 40px 50px;
-            box-shadow: 0 10px 30px rgba(244, 143, 177, 0.25);
-            border: 1px solid rgba(255, 255, 255, 0.5);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.4);
             position: relative;
             z-index: 2;
         }
@@ -63,7 +66,7 @@
         .back-home {
             display: inline-block;
             margin-bottom: 30px;
-            color: #ff5c8a;
+            color: #d6336c;
             text-decoration: none;
             font-family: 'Comfortaa', cursive;
             font-weight: bold;
@@ -78,50 +81,53 @@
         .entry-title {
             font-family: 'Comfortaa', cursive;
             font-size: 2rem;
-            color: #ff477e;
+            color: #c2255c;
             margin-top: 0;
             margin-bottom: 15px;
             line-height: 1.4;
+            font-weight: 700;
         }
         .entry-meta {
             font-size: 0.9rem;
-            color: #8a7379;
+            color: #5c4d50;
             margin-bottom: 35px;
-            border-bottom: 2px dashed rgba(255, 71, 126, 0.2);
+            border-bottom: 2px dashed rgba(194, 37, 92, 0.2);
             padding-bottom: 15px;
+            font-weight: 500;
         }
 
-        /* Định dạng nội dung bài tiểu luận */
+        /* Định dạng nội dung bài tiểu luận - Đảm bảo siêu nét, rõ ràng */
         .entry-content p {
             text-align: justify;
-            margin-bottom: 20px;
+            margin-bottom: 22px;
             font-size: 1.02rem;
+            font-weight: 450; /* Tăng độ dày nét chữ một chút xíu để đọc không bị mỏi mắt */
         }
 
         /* Định dạng đầu mục to, in đậm và nổi bật */
         .entry-content h2 {
             font-family: 'Comfortaa', cursive;
             font-size: 1.4rem;
-            color: #ff477e;
-            margin-top: 40px;
+            color: #c2255c;
+            margin-top: 45px;
             margin-bottom: 20px;
             font-weight: 700;
-            border-left: 4px solid #ff758f;
+            border-left: 4px solid #f06595;
             padding-left: 15px;
         }
         .entry-content h3 {
-            font-size: 1.15rem;
-            color: #ff5c8a;
-            margin-top: 25px;
+            font-size: 1.18rem;
+            color: #d6336c;
+            margin-top: 30px;
             margin-bottom: 15px;
-            font-weight: 600;
+            font-weight: 700;
         }
         .entry-content h4 {
             font-size: 1.05rem;
-            color: #4a3b40;
-            margin-top: 20px;
+            color: #2b1f22;
+            margin-top: 25px;
             margin-bottom: 10px;
-            font-weight: 600;
+            font-weight: 700;
         }
 
         /* Danh sách tài liệu tham khảo */
@@ -131,6 +137,7 @@
         }
         .entry-content li {
             margin-bottom: 10px;
+            font-weight: 450;
         }
 
         /* Responsive cho điện thoại */
@@ -177,7 +184,7 @@
 
             <h4>1.2. Chức năng của nghệ thuật</h4>
             <p>Theo như giáo trình Nghệ thuật học đại cương (Trần Hinh, Hoàng Cẩm Giang), ta có thể tiếp cận chức năng của nghệ thuật theo một hệ thống lý luận tương đối ổn định. Giáo trình coi nghệ thuật là một hình thái ý thức xã hội, vì vậy nên chức năng của nghệ thuật được phân loại và xác định rất dễ dàng. Đó bao gồm:</p>
-            <p><strong>Chức năng thẩm mỹ:</strong> thoả mãn nhu cầu thẩm mỹ của con người, đồng thời với đó là giúp con người có thể ngẫm nghĩ, chiêm nghiệm về đời sống.<br>
+            <p><strong>Chức năng thẩm mỹ:</strong> thoả mãn nhu cầu thẩm mỹ của con người, đồng thời with đó là giúp con người có thể ngẫm nghĩ, chiêm nghiệm về đời sống.<br>
             <strong>Chức năng phản ánh hiện thực:</strong> phản ánh hiện thực bằng hình tượng, giúp cho con người hiểu, thấu cảm với xã hội và con người của các thời kỳ khác nhau.<br>
             <strong>Chức năng giáo dục:</strong> giáo dục của nghệ thuật không thô thiển rằng con người tìm đến nghệ thuật với mong muốn giáo dục cụ thể, mà thông qua các tác phẩm nghệ thuật, con người hiểu biết hơn về thế giới, vũ trụ và con người bên ngoài.<br>
             <strong>Chức năng giải trí:</strong> ta có thể nói rằng đây là chức năng cơ bản nhất của nghệ thuật, rằng “khởi đầu, thậm chí nghệ thuật sinh ra là để phục vụ nhu cầu thuần tuý giải trí của con người” (Giáo trình Nghệ thuật học đại cương – Trần Hinh, Hoàng Cẩm Giang – tr. 20).</p>
@@ -192,7 +199,7 @@
             <p>E. Gombrich cho rằng, khi một bức tranh được đóng khung và treo lên, nó trở nên thật xa cách và lạ lẫm. Sự xa cách ấy không chỉ là về mặt vật lý – khi người thưởng thức không còn được trực tiếp chạm tay hay tiếp cận gần với tác phẩm, điều vốn vô cùng phổ biến và bình thường khi tác phẩm được đặt trong đúng thời đại và hoàn cảnh ra đời của nó, mà còn là sự xa cách về mặt tinh thần, khi mà nghệ thuật không còn được cảm nhận như một điều gần gũi trong đời sống, mà là một hiện vật ở trên cao, hoàn toàn mới mẻ và xa lạ.</p>
 
             <h4>2.2. Sự chuyển đổi vai trò của người tiếp nhận nghệ thuật</h4>
-            <p>Song song với sự thay đổi của không gian nghệ thuật là sự thay đổi trong vai trò của người thưởng thức nghệ thuật. Trong bối cảnh truyền thống, con người tiếp xúc với nghệ thuật như một phần tự nhiên của đời sống: họ cầu nguyện với tượng thần, sinh hoạt trong không gian được trang trí bằng những bức tranh mà có lẽ họ cũng chẳng ngờ được vài trăm năm sau nó sẽ được đem đi đấu giá với một số tiền khổng lồ, hay thậm chí sử dụng những chiếc cốc, chiếc bát được chạm trổ tinh xảo mà thời nay được trưng bày như bảo vật trong cuộc sống hằng ngày. Nghệ thuật khi ấy gần gũi, được tiếp nhận thông qua niềm tin và các thói quen sinh hoạt hằng ngày.</p>
+            <p>Song song với sự thay đổi của không gian nghệ thuật là sự thay đổi trong vai trò của người thưởng thức nghệ thuật. Trong bối cảnh truyền thống, con người tiếp xúc với nghệ thuật như một phần tự nhiên của đời sống: họ cầu nguyện with tượng thần, sinh hoạt trong không gian được trang trí bằng những bức tranh mà có lẽ họ cũng chẳng ngờ được vài trăm năm sau nó sẽ được đem đi đấu giá với một số tiền khổng lồ, hay thậm chí sử dụng những chiếc cốc, chiếc bát được chạm trổ tinh xảo mà thời nay được trưng bày như bảo vật trong cuộc sống hằng ngày. Nghệ thuật khi ấy gần gũi, được tiếp nhận thông qua niềm tin và các thói quen sinh hoạt hằng ngày.</p>
             <p>Ngược lại, trong bối cảnh hiện đại, người tiếp nhận nghệ thuật chủ yếu đóng vai trò của một khán giả thụ động thay vì trực tiếp cảm nhận hay thậm chí sống trong nó như trong quá khứ. Họ đứng trước một tác phẩm nghệ thuật, quan sát, suy ngẫm và đánh giá nó như một vật xa lạ và hiếm khi được phép tương tác trực tiếp với nó. Sự tiếp nhận này mang tính tri thức và chiêm nghiệm, song cũng dễ dẫn đến việc tách nghệ thuật ra khỏi những trải nghiệm sống động vốn có của nó.</p>
             <p>Sự thay đổi này khiến nghệ thuật dễ bị hiểu như một lĩnh vực dành riêng cho những người có kiến thức chuyên môn hoặc có khả năng thưởng thức thẩm mỹ nhất định. Điều đó vô tình tạo ra một khoảng cách giữa nghệ thuật và đời sống đại chúng, khiến nghệ thuật dần trở nên lạ lẫm so với những chức năng ban đầu mà nó từng đảm nhận.</p>
 
