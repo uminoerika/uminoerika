@@ -351,6 +351,12 @@
                 transform: translate(-50%, -50%) scale(0) rotate(0deg);
                 opacity: 1;
             }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
             100% {
                 transform: translate(var(--mx), var(--my)) scale(1.2) rotate(180deg);
                 opacity: 0;
@@ -399,7 +405,11 @@
         <section id="blog-content" class="section-box">
             <h2><span class="fish-decor" style="position:static; display:inline-block; transform: scale(0.7);"></span> Pick ur fav and enjoy with some tea and cookies OwO </h2>
             
-           <div class="sub-categories">
+            <div class="search-container" style="text-align: center; margin: 15px 0 25px 0;">
+                <input type="text" id="blogSearch" onkeyup="searchBlogs()" placeholder="🔍 Gõ từ khóa tìm kiếm bài viết..." style="width: 100%; max-width: 400px; padding: 10px 15px; border: 3px solid var(--border-color); border-radius: 20px; font-family: inherit; font-size: 0.95rem; outline: none; background: rgba(255,255,255,0.7); color: var(--text-dark);">
+            </div>
+             
+            <div class="sub-categories">
                 <button class="filter-btn active" onclick="filterCategory('all')">✨ Tất cả bài viết</button>
                 <button class="filter-btn" onclick="filterCategory('life')">✨ How a fish dreamin'</button>
                 <button class="filter-btn" onclick="filterCategory('books')">✨ How a fish enjoys reading</button>
@@ -413,7 +423,7 @@
                         <img src="https://images.unsplash.com/photo-1515694346937-94d85e41e6f0?w=600&auto=format&fit=crop" alt="Chiều bình yên">
                     </div>
                     <div class="blog-post-content">
-                        <h3>Một chiều nắng ấm và tách trà ấm</h3>
+                        <h3><a href="mot-chieu-nang-am.html" style="text-decoration: none; color: inherit;">Một chiều nắng ấm và tách trà ấm</a></h3>
                         <div class="meta-info">Danh mục: Đời sống thường nhật | Ngày đăng: 20/05/2026</div>
                         <p>Hôm nay trời Hà Nội đổ những vệt nắng thật trong qua khung cửa sổ. Tôi ngồi tựa lưng bên bàn học, tự thưởng cho mình một tách trà nhài nóng và ngắm nhìn những tán lá đung đưa. Những ngày bình dị như thế này khiến tôi nhận ra hạnh phúc thật ra rất giản đơn.</p>
                         <div class="hashtag-container">
@@ -428,7 +438,7 @@
                         <img src="https://images.unsplash.com/photo-1544640808-32ca72ac7f37?w=600&auto=format&fit=crop" alt="Đọc sách">
                     </div>
                     <div class="blog-post-content">
-                        <h3>Đọc lại một cuốn sách cũ vào ngày mưa</h3>
+                        <h3><a href="doc-lai-sach-cu.html" style="text-decoration: none; color: inherit;">Đọc lại một cuốn sách cũ vào ngày mưa</a></h3>
                         <div class="meta-info">Danh mục: Góc về Sách | Ngày đăng: 18/05/2026</div>
                         <p>Mỗi lần lật mở lại những trang sách cũ, tôi lại tìm thấy một tầng ý nghĩa mới mà trước đây mình từng bỏ lỡ. Sách giống như một người bạn tri kỷ, luôn kiên nhẫn chờ đợi ta trưởng thành để thấu hiểu nó sâu sắc hơn.</p>
                         <div class="hashtag-container">
@@ -443,7 +453,7 @@
                         <img src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?w=600&auto=format&fit=crop" alt="Âm nhạc">
                     </div>
                     <div class="blog-post-content">
-                        <h3>Giai điệu City Pop cho buổi tối mơ màng</h3>
+                        <h3><a href="giai-dieu-city-pop.html" style="text-decoration: none; color: inherit;">Giai điệu City Pop cho buổi tối mơ màng</a></h3>
                         <div class="meta-info">Danh mục: Chia sẻ Âm nhạc | Ngày đăng: 15/05/2026</div>
                         <p>Thả mình vào những giai điệu kẹo ngọt đầy hoài niệm của thập niên 80s. Tiếng bass bập bùng cùng giọng hát trong trẻo như đưa tôi đi qua những con phố lung linh ánh đèn neon của Tokyo xưa cũ.</p>
                         <div class="hashtag-container">
@@ -465,7 +475,25 @@
 </div>
 
 <script>
+    // HÀM XỬ LÝ TÌM KIẾM REAL-TIME MỚI BỔ SUNG
+    function searchBlogs() {
+        let input = document.getElementById('blogSearch').value.toLowerCase();
+        let posts = document.getElementsByClassName('blog-post');
+
+        for (let i = 0; i < posts.length; i++) {
+            let postText = posts[i].innerText.toLowerCase();
+            if (postText.includes(input)) {
+                posts[i].classList.remove('hidden');
+            } else {
+                posts[i].classList.add('hidden');
+            }
+        }
+    }
+
     function filterCategory(category) {
+        // Reset ô tìm kiếm về rỗng khi bấm chuyển danh mục
+        document.getElementById('blogSearch').value = "";
+        
         const buttons = document.querySelectorAll('.filter-btn');
         buttons.forEach(btn => btn.classList.remove('active'));
         if(event) event.target.classList.add('active');
@@ -481,6 +509,9 @@
     }
 
     function filterHashtag(tag) {
+        // Reset ô tìm kiếm về rỗng khi bấm chọn hashtag
+        document.getElementById('blogSearch').value = "";
+
         const buttons = document.querySelectorAll('.filter-btn');
         buttons.forEach(btn => btn.classList.remove('active'));
 
@@ -528,36 +559,32 @@
             }, 800);
         }
     });
+
     // Hàm tạo bong bóng ngẫu nhiên khi vào trang
-function createBubbles() {
-    const container = document.querySelector('.bubble-container');
-    if (!container) return;
+    function createBubbles() {
+        const container = document.querySelector('.bubble-container');
+        if (!container) return;
 
-    // Số lượng bong bóng hiển thị cùng lúc
-    const bubbleCount = 15; 
-    
-    for (let i = 0; i < bubbleCount; i++) {
-        let bubble = document.createElement('div');
-        bubble.classList.add('bubble');
+        const bubbleCount = 15; 
         
-        // Kích thước ngẫu nhiên từ 15px đến 45px
-        let size = Math.random() * 30 + 15;
-        bubble.style.width = `${size}px`;
-        bubble.style.height = `${size}px`;
-        
-        // Vị trí xuất phát ngẫu nhiên theo chiều ngang
-        bubble.style.left = `${Math.random() * 100}%`;
-        
-        // Thời gian bay và thời gian delay ngẫu nhiên để không bị bay trùng nhau
-        bubble.style.animationDuration = `${Math.random() * 6 + 6}s`;
-        bubble.style.animationDelay = `${Math.random() * 5}s`;
-        
-        container.appendChild(bubble);
+        for (let i = 0; i < bubbleCount; i++) {
+            let bubble = document.createElement('div');
+            bubble.classList.add('bubble');
+            
+            let size = Math.random() * 30 + 15;
+            bubble.style.width = `${size}px`;
+            bubble.style.height = `${size}px`;
+            
+            bubble.style.left = `${Math.random() * 100}%`;
+            
+            bubble.style.animationDuration = `${Math.random() * 6 + 6}s`;
+            bubble.style.animationDelay = `${Math.random() * 5}s`;
+            
+            container.appendChild(bubble);
+        }
     }
-}
 
-// Chạy hàm tạo bong bóng ngay khi trang web tải xong
-window.addEventListener('DOMContentLoaded', createBubbles);
+    window.addEventListener('DOMContentLoaded', createBubbles);
 </script>
 </body>
 </html>
