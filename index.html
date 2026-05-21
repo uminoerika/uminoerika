@@ -34,6 +34,58 @@
             background-size: cover;
             background-position: center;
         }
+        /* Khung chứa bong bóng bao phủ toàn màn hình */
+        .bubble-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: -1; /* Đẩy bong bóng ra sau các khung chữ */
+            pointer-events: none;
+        }
+
+        /* Định dạng từng viên bong bóng */
+        .bubble {
+            position: absolute;
+            bottom: -50px; /* Xuất phát từ dưới cùng màn hình bay lên */
+            background: rgba(235, 243, 245, 0.35); /* Màu xanh khói trong suốt */
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            border-radius: 50%;
+            box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.6);
+            animation: floatUp 8s infinite linear;
+        }
+
+        /* Thêm hiệu ứng lấp lánh bên trong bong bóng */
+        .bubble::after {
+            content: '';
+            position: absolute;
+            top: 20%;
+            left: 20%;
+            width: 25%;
+            height: 25%;
+            background: rgba(255, 255, 255, 0.6);
+            border-radius: 50%;
+        }
+
+        /* Hiệu ứng hoạt họa bay từ dưới lên trên và lắc lư nhẹ */
+        @keyframes floatUp {
+            0% {
+                transform: translateY(0) translateX(0);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-110vh) translateX(50px);
+                opacity: 0;
+            }
+        }
 
         .container {
             max-width: 900px;
