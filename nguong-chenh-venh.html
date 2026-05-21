@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>gửi người của ngưỡng chênh vênh cuộc đời - Umino Erika</title>
+    <style>
+        /* --- ĐỒNG BỘ CẤU HÌNH RETRO JAPANESE PASTEL TỪ TRANG CHỦ --- */
+        @import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;700&family=Space+Grotesk:wght@400;700&display=swap');
+
+        :root {
+            --bg-pink: #FFD1DC;
+            --panel-blue: #EBF3F5;
+            --accent-orange: #FF8C42;
+            --text-dark: #2E3142;
+            --border-color: #8fa4ad;
+            --white: #FFFFFF;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Comfortaa', 'Space Grotesk', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-pink);
+            color: var(--text-dark);
+            padding: 40px 20px;
+            line-height: 1.9;
+            background-image: url('quality_restoration_20260521021539118.png');
+            background-attachment: fixed;
+            background-size: cover;
+            background-position: center;
+            overflow-x: hidden;
+        }
+
+        /* Khung chứa bong bóng toàn màn hình */
+        .bubble-container {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            overflow: hidden;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        .bubble {
+            position: absolute;
+            bottom: -50px;
+            background: rgba(235, 243, 245, 0.35);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            border-radius: 50%;
+            box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.6);
+            animation: floatUp 8s infinite linear;
+        }
+
+        @keyframes floatUp {
+            0% { transform: translateY(0) translateX(0); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateY(-110vh) translateX(50px); opacity: 0; }
+        }
+
+        .container { max-width: 900px; margin: 0 auto; }
+
+        /* --- HEADER --- */
+        header {
+            text-align: center;
+            padding: 45px 50px;
+            background: rgba(235, 243, 245, 0.85);
+            border: 4px solid var(--border-color);
+            border-radius: 20px;
+            position: relative;
+            box-shadow: 6px 6px 0px var(--border-color);
+            margin-bottom: 30px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+        }
+
+        header h1 {
+            font-size: 1.8rem;
+            color: var(--text-dark);
+            font-weight: 700;
+            line-height: 1.4;
+            max-width: 85%;
+        }
+
+        header p { font-size: 0.85rem; color: #5c4d50; font-weight: 500; }
+
+        /* Cá trang trí góc header */
+        .fish-decor {
+            position: absolute;
+            width: 40px;
+            height: 25px;
+            background: var(--accent-orange);
+            border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+        }
+        .fish-decor::after {
+            content: ''; position: absolute; right: -8px; top: 5px; width: 0; height: 0;
+            border-top: 8px solid transparent; border-bottom: 8px solid transparent;
+            border-left: 12px solid var(--accent-orange);
+        }
+        .fish-decor::before {
+            content: ''; position: absolute; left: 8px; top: 6px; width: 4px; height: 4px;
+            background: var(--text-dark); border-radius: 50%;
+        }
+        .fish-1 { top: 15px; left: 15px; transform: rotate(-10deg); }
+        .fish-2 { bottom: 15px; right: 15px; transform: rotate(15deg); }
+
+        /* --- NÚT QUAY LẠI --- */
+        .back-nav { margin-bottom: 25px; }
+        .back-btn {
+            background: var(--white);
+            padding: 10px 22px;
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: bold;
+            border: 3px solid var(--border-color);
+            border-radius: 12px;
+            box-shadow: 4px 4px 0px var(--border-color);
+            display: inline-block;
+            transition: all 0.2s ease;
+        }
+        .back-btn:hover {
+            transform: translate(2px, 2px);
+            box-shadow: 2px 2px 0px var(--border-color);
+            background: #F4C2D7;
+        }
+
+        /* --- NỘI DUNG CHÍNH --- */
+        .content-box {
+            background: rgba(255, 255, 255, 0.85);
+            border: 4px solid var(--border-color);
+            border-radius: 20px;
+            padding: 50px;
+            box-shadow: 6px 6px 0px var(--border-color);
+        }
+
+        .fragment-p {
+            font-weight: 300; /* Nét chữ mảnh mai */
+            font-size: 1rem;
+            margin-bottom: 25px;
+            text-align: justify;
+            text-indent: 30px; /* Thụt đầu dòng nhẹ */
+        }
+
+        /* Dải phân cách giữa các đoạn */
+        .divider {
+            text-align: center;
+            margin: 45px 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            opacity: 0.7;
+        }
+        .small-fish {
+            display: inline-block;
+            width: 22px;
+            height: 14px;
+            background: var(--accent-orange);
+            border-radius: 50%;
+            position: relative;
+        }
+        .small-fish::after {
+            content: ''; position: absolute; right: -5px; top: 3px;
+            border-left: 7px solid var(--accent-orange); border-top: 4px solid transparent; border-bottom: 4px solid transparent;
+        }
+
+        /* --- CLICK EFFECT --- */
+        .click-star {
+            position: absolute; width: 35px; height: 35px; pointer-events: none;
+            animation: popOut 0.8s ease-out forwards;
+        }
+        @keyframes popOut {
+            0% { transform: translate(-50%, -50%) scale(0) rotate(0deg); opacity: 1; }
+            100% { transform: translate(var(--mx), var(--my)) scale(1.2) rotate(180deg); opacity: 0; }
+        }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            .content-box { padding: 30px 20px; }
+            header h1 { font-size: 1.4rem; }
+            .fish-decor { display: none; }
+        }
+    </style>
+</head>
+<body>
+    <div class="bubble-container"></div>
+
+    <div class="container">
+        <header>
+            <div class="fish-decor fish-1"></div>
+            <h1>Gửi người của ngưỡng chênh vênh cuộc đời</h1>
+            <p>Tác giả: Umino Erika | Ngày đăng: 22/5/2025</p>
+            <div class="fish-decor fish-2"></div>
+        </header>
+
+        <nav class="back-nav">
+            <a href="index.html" class="back-btn">← Quay lại bể cá lớn</a>
+        </nav>
+
+        <main class="content-box">
+            
+            <div class="post-section">
+                <p class="fragment-p">Chúng ta gặp nhau vào một ngày nắng thu nhàn nhạt, rồi rạng rỡ mỉm cười nói lời tạm biệt vào một ngày nắng hạ tinh khôi. Quãng hoa niên mơ màng khẽ thoảng qua tựa như một giấc mộng ban trưa, cõng theo những kỉ niệm ngây ngô gửi lại vào khoảng trời trong xanh đượm đầy những mộng mơ và kí ức. Khoảng trời năm ấy biến những người lạ thành tri kỷ, rồi lại trả tri kỷ về với những lối rẽ riêng của cuộc đời, cuối cùng chẳng giữ lại được tớ, được cậu, nhưng may mắn hơn thảy đã níu lại được những thanh thuần tinh khôi nhất của một đời người.</p>
+                <p class="fragment-p">Chào cậu, chào tớ, chào chúng ta của một thời vụng dại. Chào những hoài niệm trong trẻo và đẹp đẽ vô ngần, chào quãng đời học sinh tươi đẹp nhưng cũng không kém phần nổi loạn, bốc đồng. Ở cái tuổi mười mấy lưng chừng ấy, chúng ta vừa khao khát khẳng định, khao khát chứng tỏ, khao khát mạnh mẽ, vừng vàng hơn thảy, vẫn lại có đôi phần e ngại, sợ hãi trước những mênh mông thách thức chẳng biết khi nào sẽ tới gần. Ở cái tuổi 17, 18 ấy, mưa chẳng tới mặt, nắng chẳng tới đầu, nom chẳng có xíu lắng lo gì, ấy vậy mà vẫn cứ hồi hộp, cậu nhỉ.</p>
+            </div>
+
+            <div class="divider">🫧 ✦ <span class="small-fish"></span> ✦ 🫧</div>
+
+            <div class="post-section">
+                <p class="fragment-p">Tớ nghĩ, hẳn là vì, ở cái ngưỡng cửa chênh vênh ấy, chúng ta bắt đầu lờ mờ nhận ra thế giới ngoài kia rộng lớn đến nhường nào, còn vòng tay của bạn bè, thầy cô hay bố mẹ thì mỗi ngày một hẹp lại. Chẳng còn những ngây thơ của tháng ngày chân ướt chân ráo vào cấp 3, nỗi lo lắng ấy giờ đây tới từ nỗi sợ mơ hồ về một ngày mai chẳng còn thấy nắng hạ vương trên vai, chẳng còn được í ới gọi tên nhau sau mỗi buổi tan trường. Chúng ta hăm hở muốn lớn lên, muốn trưởng thành, nhưng lại sợ hãi việc phải tự mình bước đi mà không có bóng dáng người bạn đồng hành quen thuộc bên cạnh.</p>
+                <p class="fragment-p">Tớ còn nghĩ, cậu ạ, đó còn là vì khi lồng ngực rung lên trong những khắc bất chợt đã đủ khiến ta âm thầm cất giữ trong tim một nụ cười nhạt nhòa. Càng đi qua những ngày mưa bão của tuổi trưởng thành sau này, người ta càng thèm được nếm lại cái cảm giác được lo lắng một cách thuần khiết như thế. Nỗi hồi hộp của tuổi 17, 18 đẹp như một nét cười lanh lảnh, nơi mà đôi ánh mắt chạm nhau dưới bóng cây một chiều hoàng hôn cũng đủ để thắp sáng cả một mùa hạ.</p>
+                <p class="fragment-p">Với cậu, thanh xuân là gì, cậu nhỉ? Với tớ, thanh xuân là những cảm xúc, những rung động đầu đời, là khi những ngây ngô vụng dại dạy cho ta biết hiểu, biết thương một người, là khi những giọt nắng rơi trên gò má long lanh như hạt ngọc mà khiến trái tim thổn thức vô tình hẫng đi một nhịp.</p>
+            </div>
+
+            <div class="divider">🫧 ✦ <span class="small-fish" style="transform: scaleX(-1);"></span> ✦ 🫧</div>
+
+            <div class="post-section">
+                <p class="fragment-p">Tớ rất nhớ quãng thời gian đó, cậu ạ, nhớ góc sân ngập nắng chiều, nơi bóng chúng ta đổ dài trên nền gạch cũ, nhớ bầu trời trong trẻo cao vời vợi và cả ngôi trường đẹp tựa như trong mơ. Nhớ cả những bữa gật gù ngủ gật bị cô gọi đứng lên trong sự ngơ ngác và tiếng cười khúc khích của đám bạn xung quanh; nhớ cả những bữa hét hò ầm ĩ vì được trống tiết, tiếng reo hò phá tan cái ngột ngạt của những mùa thi cử.</p>
+                <p class="fragment-p">Và làm sao quên được cả những lần chạy vội vàng cả 7 tầng để lên lớp, những lần mà đau tim, đau bụng, thở thì chẳng ra hơi, còn phải len lén thầy cô đi cửa sau và chỉ có thể thở phào yên vị khi đã trốn được vào chỗ cũng như nhận ra phi vụ đã trót lọt. Đó đều là những kỉ niệm đáng nhớ của thời học trò, là một thước phim đẹp và hoài niệm mà sau này mỗi khi nhớ lại, ta sẽ chỉ lặng lẽ mỉm cười vì đã hết mình cho một quãng hoa niên.</p>
+            </div>
+
+            <div class="divider">🫧 ✦ <span class="small-fish"></span> ✦ 🫧</div>
+
+            <div class="post-section">
+                <p class="fragment-p">Người ta thường nói rằng, thanh xuân tựa như những bông pháo hoa, rực rỡ và đẹp đẽ trên cao nhưng lại mau chóng tan đi vào màn đêm thăm thẳm. Giấc mơ này đã dần đi tới những khoảnh khắc cuối cùng, chúng ta của những ngày sau này hẳn sẽ vững vàng trên những con đường khác nhau. Dẫu cho tớ, cho cậu, cho chúng ta, mỗi người theo đuổi những mục tiêu riêng, nhưng mỗi khi nhắc lại về chúng ta của một thời thanh xuân, nụ cười sẽ nở trên môi và trái tim sẽ thôi xao xuyến xốn xang vì những hoài niệm và nuối tiếc. Bởi lẽ, chúng ta đều biết, tất thảy những tháng ngày thanh xuân ấy, chúng ta đã hạnh phúc, kiêu hãnh và trọn vẹn bên nhau tới tận những phút giây cuối cùng.</p>
+                <p class="fragment-p" style="font-weight: bold; text-align: center; text-indent: 0; color: #c2255c;">Cảm ơn cậu, cảm ơn tớ, cảm ơn chúng ta đã cháy hết mình những tháng ngày đẹp nhất của thanh xuân. Chúc cho quãng đường sau này của cậu sẽ thật ít gian truân, chúc cho chúng ta sau này sẽ thật hạnh phúc. ✨ Happy Graduation ✨</p>
+            </div>
+
+        </main>
+
+        <footer style="text-align: center; padding: 30px; opacity: 0.7; font-size: 0.9rem;">
+            <p>© Umino Erika</p>
+        </footer>
+    </div>
+
+<script>
+    // Click Effect (Stars)
+    const starColors = ['#FFF3A7', '#FFB7CE', '#AEE2FF'];
+    window.addEventListener('click', function(e) {
+        for (let i = 0; i < 6; i++) {
+            const star = document.createElement('div');
+            star.className = 'click-star';
+            star.style.background = starColors[Math.floor(Math.random() * starColors.length)];
+            star.style.clipPath = "polygon(50% 0%, 65% 35%, 100% 50%, 65% 65%, 50% 100%, 35% 65%, 0% 50%, 35% 35%)";
+            star.style.left = e.pageX + 'px';
+            star.style.top = e.pageY + 'px';
+            const moveX = (Math.random() - 0.5) * 100;
+            const moveY = (Math.random() - 0.5) * 100;
+            star.style.setProperty('--mx', moveX + 'px');
+            star.style.setProperty('--my', moveY + 'px');
+            document.body.appendChild(star);
+            setTimeout(() => star.remove(), 800);
+        }
+    });
+
+    // Bubble Effect
+    function createBubbles() {
+        const container = document.querySelector('.bubble-container') || document.body;
+        const bubbleCount = 15;
+        for (let i = 0; i < bubbleCount; i++) {
+            let bubble = document.createElement('div');
+            bubble.className = 'bubble';
+            let size = Math.random() * 30 + 15;
+            bubble.style.width = size + 'px';
+            bubble.style.height = size + 'px';
+            bubble.style.left = Math.random() * 100 + '%';
+            bubble.style.animationDuration = (Math.random() * 6 + 6) + 's';
+            bubble.style.animationDelay = (Math.random() * 5) + 's';
+            document.body.appendChild(bubble);
+        }
+    }
+    window.addEventListener('DOMContentLoaded', createBubbles);
+</script>
+</body>
+</html>
