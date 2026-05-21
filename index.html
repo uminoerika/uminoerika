@@ -307,6 +307,7 @@
     </style>
 </head>
 <body>
+    <div class="bubble-container"></div>
 
 <div class="container">
 
@@ -475,6 +476,36 @@
             }, 800);
         }
     });
+    // Hàm tạo bong bóng ngẫu nhiên khi vào trang
+function createBubbles() {
+    const container = document.querySelector('.bubble-container');
+    if (!container) return;
+
+    // Số lượng bong bóng hiển thị cùng lúc
+    const bubbleCount = 15; 
+    
+    for (let i = 0; i < bubbleCount; i++) {
+        let bubble = document.createElement('div');
+        bubble.classList.add('bubble');
+        
+        // Kích thước ngẫu nhiên từ 15px đến 45px
+        let size = Math.random() * 30 + 15;
+        bubble.style.width = `${size}px`;
+        bubble.style.height = `${size}px`;
+        
+        // Vị trí xuất phát ngẫu nhiên theo chiều ngang
+        bubble.style.left = `${Math.random() * 100}%`;
+        
+        // Thời gian bay và thời gian delay ngẫu nhiên để không bị bay trùng nhau
+        bubble.style.animationDuration = `${Math.random() * 6 + 6}s`;
+        bubble.style.animationDelay = `${Math.random() * 5}s`;
+        
+        container.appendChild(bubble);
+    }
+}
+
+// Chạy hàm tạo bong bóng ngay khi trang web tải xong
+window.addEventListener('DOMContentLoaded', createBubbles);
 </script>
 </body>
 </html>
