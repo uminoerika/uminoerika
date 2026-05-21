@@ -39,10 +39,13 @@
         /* Khung chứa bong bóng toàn màn hình */
         .bubble-container {
             position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
+            top: 0; 
+            left: 0; 
+            width: 100%; 
+            height: 100%;
             overflow: hidden;
-            z-index: -1;
-            pointer-events: none;
+            z-index: -1; /* Đẩy hẳn khung này ra phía sau cùng */
+            pointer-events: none; /* Không cản trở việc rê chuột hoặc click chữ */
         }
 
         .bubble {
@@ -62,7 +65,7 @@
             100% { transform: translateY(-110vh) translateX(50px); opacity: 0; }
         }
 
-        .container { max-width: 900px; margin: 0 auto; }
+        .container { max-width: 900px; margin: 0 auto; position: relative; z-index: 1; }
 
         /* --- HEADER --- */
         header {
@@ -175,6 +178,7 @@
         .click-star {
             position: absolute; width: 35px; height: 35px; pointer-events: none;
             animation: popOut 0.8s ease-out forwards;
+            z-index: 9999; /* Luôn nằm trên cùng khi nhấn chuột */
         }
         @keyframes popOut {
             0% { transform: translate(-50%, -50%) scale(0) rotate(0deg); opacity: 1; }
@@ -260,9 +264,11 @@
         }
     });
 
-    // Bubble Effect
+    // Bubble Effect - Đã sửa lỗi chèn nhầm vị trí
     function createBubbles() {
-        const container = document.querySelector('.bubble-container') || document.body;
+        const container = document.querySelector('.bubble-container');
+        if (!container) return; // Bảo vệ nếu không tìm thấy thẻ chứa
+
         const bubbleCount = 15;
         for (let i = 0; i < bubbleCount; i++) {
             let bubble = document.createElement('div');
@@ -273,7 +279,9 @@
             bubble.style.left = Math.random() * 100 + '%';
             bubble.style.animationDuration = (Math.random() * 6 + 6) + 's';
             bubble.style.animationDelay = (Math.random() * 5) + 's';
-            document.body.appendChild(bubble);
+            
+            // Chèn bong bóng VÀO TRONG container nền thay vì body
+            container.appendChild(bubble); 
         }
     }
     window.addEventListener('DOMContentLoaded', createBubbles);
