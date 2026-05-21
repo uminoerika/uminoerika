@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thu Hà Nội - Umino Erika</title>
+    <style>
+        /* --- CẤU HÌNH MÀU SẮC & PHÔNG CHỮ (Retro Japanese Pastel) --- */
+        @import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;700&display=swap');
+
+        :root {
+            --bg-pink: #FFD1DC;      /* Hồng pastel đậm hơn, ngọt ngào */
+            --panel-blue: #EBF3F5;   /* Màu xanh dương khói nhạt */
+            --accent-orange: #FF8C42;/* Cam san hô đậm nổi bật cho chú cá */
+            --text-dark: #2E3142;    /* Chữ chính màu than tối sắc nét */
+            --border-color: #8fa4ad; /* Đường viền retro đậm đà */
+            --white: #FFFFFF;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Comfortaa', 'Space Grotesk', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-pink);
+            color: var(--text-dark);
+            padding: 20px;
+            line-height: 1.9; /* Khoảng cách dòng thoáng đãng cho nét chữ mảnh mẻ dễ thở */
+            background-image: url('quality_restoration_20260521021539118.png');
+            background-attachment: fixed;
+            background-size: cover;
+            background-position: center;
+        }
+        
+        /* Khung chứa bong bóng bao phủ toàn màn hình */
+        .bubble-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: -1; 
+            pointer-events: none;
+        }
+
+        /* Định dạng từng viên bong bóng */
+        .bubble {
+            position: absolute;
+            bottom: -50px; 
+            background: rgba(235, 243, 245, 0.35); 
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            border-radius: 50%;
+            box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.6);
+            animation: floatUp 8s infinite linear;
+        }
+
+        .bubble::after {
+            content: '';
+            position: absolute;
+            top: 20%;
+            left: 20%;
+            width: 25%;
+            height: 25%;
+            background: rgba(255, 255, 255, 0.6);
+            border-radius: 50%;
+        }
+
+        @keyframes floatUp {
+            0% { transform: translateY(0) translateX(0); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateY(-110vh) translateX(50px); opacity: 0; }
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        /* --- HEADER --- */
+        header {
+            text-align: center;
+            padding: 40px 20px;
+            background: rgba(235, 243, 245, 0.85); 
+            border: 4px solid var(--border-color);
+            border-radius: 20px;
+            position: relative;
+            box-shadow: 6px 6px 0px var(--border-color);
+            margin-bottom: 30px;
+            overflow: hidden;
+        }
+
+        header h1 {
+            font-size: 2rem;
+            color: var(--text-dark);
+            margin-bottom: 12px;
+            font-weight: 700;
+            line-height: 1.4;
+        }
+        
+        header p {
+            font-size: 0.9rem;
+            color: #5c4d50;
+            font-weight: 500;
+        }
+
+        /* Chú cá trang trí */
+        .fish-decor {
+            position: absolute;
+            width: 40px;
+            height: 25px;
+            background: var(--accent-orange);
+            border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+            display: inline-block;
+        }
+        .fish-decor::after {
+            content: '';
+            position: absolute;
+            right: -8px;
+            top: 5px;
+            width: 0;
+            height: 0;
+            border-top: 8px solid transparent;
+            border-bottom: 8px solid transparent;
+            border-left: 12px solid var(--accent-orange);
+        }
+        .fish-decor::before {
+            content: '';
+            position: absolute;
+            left: 8px;
+            top: 6px;
+            width: 4px;
+            height: 4px;
+            background: var(--text-dark);
+            border-radius: 50%;
+        }
+
+        .fish-1 { top: 15%; left: 5%; transform: rotate(-10deg); }
+        .fish-2 { bottom: 15%; right: 5%; transform: rotate(15deg); }
+
+        /* --- NÚT QUAY LẠI TRANG CHỦ --- */
+        .back-nav {
+            display: flex;
+            margin-bottom: 25px;
+        }
+
+        .back-btn {
+            background: var(--white);
+            padding: 10px 20px;
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 700;
+            border: 3px solid var(--border-color);
+            border-radius: 12px;
+            box-shadow: 4px 4px 0px var(--border-color);
+            transition: all 0.2s ease;
+        }
+
+        .back-btn:hover {
+            transform: translate(2px, 2px);
+            box-shadow: 2px 2px 0px var(--border-color);
+            background: #F4C2D7;
+        }
+
+        /* --- KHUNG NỘI DUNG BÀI VIẾT CHÍNH --- */
+        .content-box {
+            background: rgba(255, 255, 255, 0.85); 
+            border: 4px solid var(--border-color);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 6px 6px 0px var(--border-color);
+        }
+
+        /* Định dạng các thẻ chữ mảnh mai thanh thoát */
+        .content-box p {
+            font-weight: 300; /* Nét chữ siêu mảnh mai kẹo ngọt */
+            font-size: 0.98rem;
+            margin-bottom: 22px;
+            text-align: justify;
+            text-justify: inter-word;
+            text-indent: 30px; /* Thụt đầu dòng cho thơ mộng */
+        }
+
+        /* Khung trích dẫn thơ hoặc lời bài hát */
+        .content-box blockquote {
+            background: rgba(235, 243, 245, 0.85);
+            border-left: 5px solid var(--accent-orange);
+            border-right: 5px solid var(--accent-orange);
+            border-top: 2px solid var(--border-color);
+            border-bottom: 2px solid var(--border-color);
+            padding: 20px;
+            margin: 30px auto;
+            max-width: 85%;
+            border-radius: 12px;
+            text-align: center;
+            font-style: italic;
+            box-shadow: 4px 4px 0px var(--border-color);
+        }
+
+        .content-box blockquote p {
+            text-align: center !important;
+            text-indent: 0 !important;
+            margin-bottom: 0;
+            font-weight: 600;
+            color: #c2255c;
+        }
+
+        /* Dòng vĩ thanh kết bài viết */
+        .content-box p.closing-text {
+            text-align: right;
+            font-style: italic;
+            font-weight: 600;
+            margin-top: 40px;
+            text-indent: 0;
+            color: var(--accent-orange);
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            padding: 20px;
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+        
+        footer p {
+            font-weight: 400;
+        }
+
+        /* --- HIỆU ỨNG NGÔI SAO LẤP LÁNH KHI CLICK --- */
+        .click-star {
+            position: absolute;
+            width: 38px;
+            height: 38px;
+            pointer-events: none;
+            animation: popOut 0.8s ease-out forwards;
+        }
+
+        .click-star::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-color: var(--star-color);
+            clip-path: polygon(50% 0%, 65% 35%, 100% 50%, 65% 65%, 50% 100%, 35% 65%, 0% 50%, 35% 35%);
+        }
+
+        @keyframes popOut {
+            0% { transform: translate(-50%, -50%) scale(0) rotate(0deg); opacity: 1; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translate(var(--mx), var(--my)) scale(1.2) rotate(180deg); opacity: 0; }
+        }
+
+        /* Responsive cho thiết bị nhỏ */
+        @media (max-width: 600px) {
+            .content-box { padding: 25px 20px; }
+            header h1 { font-size: 1.5rem; }
+            .fish-1, .fish-2 { display: none; }
+        }
+    </style>
+</head>
+<body>
+    <div class="bubble-container"></div>
+
+<div class="container">
+
+    <header>
+        <div class="fish-decor fish-1"></div>
+        <h1>Thu Hà Nội</h1>
+        <p>Tác giả: Umino Erika | Ngày đăng: 10/10/2024</p> 
+        <div class="fish-decor fish-2"></div>
+    </header>
+
+    <div class="back-nav">
+        <a href="index.html" class="back-btn">← Quay lại chiếc bể cá lớn</a>
+    </div>
+
+    <main class="content-box">
+        
+        <p>Hà Nội chậm rãi bước sang thu.</p>
+
+        <p>Thật dịu dàng và bình yên, thu cứ lặng lẽ vậy mà khẽ khàng chảy vào cuộc sống bộn bề những suy tư của tớ. Khi cái nắng đã không còn gay gắt, khi gió đã thôi cõng theo hơi nóng đặc trưng của mùa hạ, khi sớm bình minh dịu dàng vuốt ve tớ bằng hơi ẩm se se và mùi lá khô rụng, tớ biết rằng, thu đã sang rồi.</p>
+
+        <p>Thu Hà Nội với tớ vẫn luôn thật đặc biệt và ngọt ngào. Tớ yêu cái nắng mơn man trên da thịt đón chào tớ mỗi buổi sớm ngái ngủ, yêu cả sự lười biếng muốn tắm mình vào hàng ngàn những tia nắng sớm mai mà vô tình bỏ quên đi cuộc sống xô bồ. Hậu quả là đôi lần trễ xe và muộn học, nhưng có lẽ vì vậy mà tớ có thêm một chút thời gian để đắm mình vào làn khí thu mềm mại như nước và xinh đẹp như nắng chiều. Hì hì, thu với tớ vẫn luôn vậy, vẫn luôn êm ái và mong manh vô ngần, ngỡ như một giấc mơ ngọt ngào sẽ vỡ tan nếu tớ không biết cách nâng niu và trân trọng.</p>
+
+        <p>Hà Nội chậm rãi bước sang thu, tớ dạo phố.</p>
+
+        <p>Vô tình và ngơ ngác, thu dường như phủ lên vạn vật một lớp long lanh huyền ảo tựa vô thực. Sắc vàng nhàn nhạt đậu lên những tán cây đang dần chuyển vàng, chảy dài trên yên của chiếc xe bán bánh mì dạo, hòa lẫn vào làn gió se se lạnh mà len lỏi vào từng điều nhỏ nhặt của cuộc sống Thủ đô tấp nập ồn ào. Đôi khi quá bận rộn và chú tâm vào công việc, tớ vô tình quên đi rằng thu đã êm dịu từng bước thấm vào cuộc sống tớ bằng mùi hương ngai ngái của lá rụng và sắc nắng mong manh yên bình. Thu luôn nhẹ nhàng xoa dịu trái tim tớ một cách rất bình dị, là sự tĩnh lặng giữa dòng chảy ồn ào của cuộc đời và là điều kì diệu nhất mà thiên nhiên gửi tặng để giúp tớ chữa lành tâm hồn xước xát đầy thương tổn của mình.</p>
+
+        <p>Hà Nội ngẩn ngơ đón thu về, tớ dường như sống lại những tháng ngày hào hùng và bi thương. Cờ Tổ quốc phấp phới tung bay, tớ nhớ về ngày này của bảy mươi năm về trước. Ngày mà cờ hoa tung bay trên khắp các con phố, ngày mà Thủ đô thân thương ngập trong sắc son của Quốc kì, ngày mà người dân Thủ đô tự hào vững bước trên mảnh đất hứng đầy đau thương và bom đạn, ngày mà nắng vàng như huyền ảo thấm đượm theo từng lời ca:</p>
+
+        <blockquote>
+            <p>“Năm cửa ô đón mừng đoàn quân tiến về<br>
+            Như đài hoa đón mừng nở năm cánh đào”</p>
+        </blockquote>
+
+        <p>Rực rỡ trong sắc cờ và hoa, nhân dân Thủ đô vui mừng đón chào đoàn quân tiến về tiếp quản thành phố. Dù chiến tranh đã lùi đi xa mãi, những mảnh hồi ức kỉ niệm về một thời hoa lửa sẽ chỉ còn là dòng hoài niệm được viết nên bằng máu trên những trang sử vẻ vang rực rỡ của dân tộc mình, nhưng chưa bao giờ, người dân Thủ đô quên đi rằng Hà Nội của họ đã từng kiên cường và dũng cảm như thế nào. Tiếng pháo rền vang tại pháo đài Láng lịch sử, tám năm sau, Thủ đô mình đã được sống trong niềm hạnh phúc và hân hoan.</p>
+
+        <p class="closing-text">Thu Hà Nội đẹp lắm, cậu có thấy thế không?</p>
+
+    </main>
+
+    <footer>
+        <p>© Umino Erika </p>
+    </footer>
+
+</div>
+
+<script>
+    // --- HIỆU ỨNG NGÔI SAO LẤP LÁNH KHI CLICK ---
+    const starColors = ['#FFF3A7', '#FFB7CE', '#AEE2FF'];
+
+    window.addEventListener('click', function(e) {
+        if (e.target.closest('.back-btn')) return;
+
+        for (let i = 0; i < 5; i++) {
+            const star = document.createElement('div');
+            star.className = 'click-star';
+            
+            const randomColor = starColors[Math.floor(Math.random() * starColors.length)];
+            star.style.setProperty('--star-color', randomColor);
+            
+            star.style.left = e.pageX + 'px';
+            star.style.top = e.pageY + 'px';
+            
+            const moveX = (Math.random() - 0.5) * 80 - 50;
+            const moveY = (Math.random() - 0.5) * 80 - 50;
+            star.style.setProperty('--mx', moveX + '%');
+            star.style.setProperty('--my', moveY + '%');
+            
+            const size = Math.random() * 30 + 20;
+            star.style.width = size + 'px';
+            star.style.height = size + 'px';
+            
+            document.body.appendChild(star);
+            
+            setTimeout(() => {
+                star.remove();
+            }, 800);
+        }
+    });
+
+    // --- HÀM TẠO BONG BÓNG NGẪU NHIÊN ---
+    function createBubbles() {
+        const container = document.querySelector('.bubble-container');
+        if (!container) return;
+
+        const bubbleCount = 15; 
+        
+        for (let i = 0; i < bubbleCount; i++) {
+            let bubble = document.createElement('div');
+            bubble.classList.add('bubble');
+            
+            let size = Math.random() * 30 + 15;
+            bubble.style.width = `${size}px`;
+            bubble.style.height = `${size}px`;
+            
+            bubble.style.left = `${Math.random() * 100}%`;
+            
+            bubble.style.animationDuration = `${Math.random() * 6 + 6}s`;
+            bubble.style.animationDelay = `${Math.random() * 5}s`;
+            
+            container.appendChild(bubble);
+        }
+    }
+
+    window.addEventListener('DOMContentLoaded', createBubbles);
+</script>
+</body>
+</html>
