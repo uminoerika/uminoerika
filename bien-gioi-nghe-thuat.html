@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biên giới của nghệ thuật và tầm đón nhận - Umino Erika</title>
+    <style>
+        /* --- CẤU HÌNH MÀU SẮC & PHÔNG CHỮ (Retro Japanese Pastel) --- */
+        @import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;700&display=swap');
+
+        :root {
+            --bg-pink: #FFD1DC;      /* Hồng pastel đậm ngọt ngào */
+            --panel-blue: #EBF3F5;   /* Màu xanh dương khói nhạt */
+            --accent-orange: #FF8C42;/* Cam san hô đậm nổi bật cho chú cá */
+            --text-dark: #2E3142;    /* Chữ chính màu than tối sắc nét */
+            --border-color: #8fa4ad; /* Đường viền retro đậm đà */
+            --white: #FFFFFF;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Comfortaa', 'Space Grotesk', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-pink);
+            color: var(--text-dark);
+            padding: 20px;
+            line-height: 1.9; /* Khoảng cách dòng thoáng đãng cho nét chữ mảnh mẻ dễ thở */
+            background-image: url('quality_restoration_20260521021539118.png');
+            background-attachment: fixed;
+            background-size: cover;
+            background-position: center;
+        }
+        
+        /* Khung chứa bong bóng bao phủ toàn màn hình */
+        .bubble-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: -1; 
+            pointer-events: none;
+        }
+
+        /* Định dạng từng viên bong bóng */
+        .bubble {
+            position: absolute;
+            bottom: -50px; 
+            background: rgba(235, 243, 245, 0.35); 
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            border-radius: 50%;
+            box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.6);
+            animation: floatUp 8s infinite linear;
+        }
+
+        .bubble::after {
+            content: '';
+            position: absolute;
+            top: 20%;
+            left: 20%;
+            width: 25%;
+            height: 25%;
+            background: rgba(255, 255, 255, 0.6);
+            border-radius: 50%;
+        }
+
+        @keyframes floatUp {
+            0% { transform: translateY(0) translateX(0); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateY(-110vh) translateX(50px); opacity: 0; }
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        /* --- HEADER --- */
+        header {
+            text-align: center;
+            padding: 40px 20px;
+            background: rgba(235, 243, 245, 0.85); 
+            border: 4px solid var(--border-color);
+            border-radius: 20px;
+            position: relative;
+            box-shadow: 6px 6px 0px var(--border-color);
+            margin-bottom: 30px;
+            overflow: hidden;
+        }
+
+        header h1 {
+            font-size: 1.8rem;
+            color: var(--text-dark);
+            margin-bottom: 12px;
+            font-weight: 700;
+            line-height: 1.5;
+        }
+        
+        header p {
+            font-size: 0.9rem;
+            color: #5c4d50;
+            font-weight: 500;
+        }
+
+        /* Chú cá trang trí */
+        .fish-decor {
+            position: absolute;
+            width: 40px;
+            height: 25px;
+            background: var(--accent-orange);
+            border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+            display: inline-block;
+        }
+        .fish-decor::after {
+            content: '';
+            position: absolute;
+            right: -8px;
+            top: 5px;
+            width: 0;
+            height: 0;
+            border-top: 8px solid transparent;
+            border-bottom: 8px solid transparent;
+            border-left: 12px solid var(--accent-orange);
+        }
+        .fish-decor::before {
+            content: '';
+            position: absolute;
+            left: 8px;
+            top: 6px;
+            width: 4px;
+            height: 4px;
+            background: var(--text-dark);
+            border-radius: 50%;
+        }
+
+        .fish-1 { top: 15%; left: 5%; transform: rotate(-10deg); }
+        .fish-2 { bottom: 15%; right: 5%; transform: rotate(15deg); }
+
+        /* --- NÚT QUAY LẠI TRANG CHỦ --- */
+        .back-nav {
+            display: flex;
+            margin-bottom: 25px;
+        }
+
+        .back-btn {
+            background: var(--white);
+            padding: 10px 20px;
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 700;
+            border: 3px solid var(--border-color);
+            border-radius: 12px;
+            box-shadow: 4px 4px 0px var(--border-color);
+            transition: all 0.2s ease;
+        }
+
+        .back-btn:hover {
+            transform: translate(2px, 2px);
+            box-shadow: 2px 2px 0px var(--border-color);
+            background: #F4C2D7;
+        }
+
+        /* --- KHUNG NỘI DUNG BÀI VIẾT CHÍNH --- */
+        .content-box {
+            background: rgba(255, 255, 255, 0.85); 
+            border: 4px solid var(--border-color);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 6px 6px 0px var(--border-color);
+        }
+
+        /* Định dạng các thẻ chữ mảnh mai thanh thoát */
+        .content-box p {
+            font-weight: 300; /* Nét chữ siêu mảnh mai kẹo ngọt */
+            font-size: 0.98rem;
+            margin-bottom: 22px;
+            text-align: justify;
+            text-justify: inter-word;
+            text-indent: 0px; /* Đã loại bỏ lui lề đầu dòng */
+        }
+
+        .content-box strong {
+            font-weight: 600; /* Nét đậm vừa phải cho các từ nhấn mạnh */
+            color: #c2255c;
+        }
+
+        /* Tiêu đề mục lớn */
+        .content-box h2 {
+            font-size: 1.4rem;
+            color: var(--text-dark);
+            margin-top: 40px;
+            margin-bottom: 20px;
+            border-bottom: 3px dashed var(--border-color);
+            padding-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 700;
+        }
+
+        /* Hashtag block */
+        .hashtag-container {
+            margin-top: 30px;
+            padding-top: 15px;
+            border-top: 1px dashed var(--border-color);
+        }
+
+        .hashtag {
+            display: inline-block;
+            background: var(--panel-blue);
+            color: #5c4d50;
+            padding: 4px 12px;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            margin-right: 8px;
+            border: 1px solid var(--border-color);
+        }
+
+        /* Khung trích dẫn hoặc câu kết lùi lề */
+        .content-box p.closing-text {
+            text-align: right;
+            font-style: italic;
+            font-weight: 600;
+            margin-top: 30px;
+            text-indent: 0;
+            color: var(--accent-orange);
+        }
+
+        /* Responsive cho thiết bị nhỏ */
+        @media (max-width: 600px) {
+            .content-box { padding: 25px 20px; }
+            header h1 { font-size: 1.4rem; }
+            .fish-1, .fish-2 { display: none; }
+        }
+    </style>
+</head>
+<body>
+    <div class="bubble-container"></div>
+
+<div class="container">
+
+    <header>
+        <div class="fish-decor fish-1"></div>
+        <h1>Biên giới của nghệ thuật và tầm đón nhận: Từ diễn biến tâm lý đến không gian phản biện của "Nỗi buồn chiến tranh"</h1>
+        <p>Tác giả: Umino Erika | Ngày đăng: 24/05/2026</p> 
+        <div class="fish-decor fish-2"></div>
+    </header>
+
+    <div class="back-nav">
+        <a href="index.html" class="back-btn">← Quay lại chiếc bể cá lớn</a>
+    </div>
+
+    <main class="content-box">
+        
+        <h2><span class="fish-decor" style="position:static; display:inline-block; transform: scale(0.6);"></span> 1. Đặt vấn đề</h2>
+        <p>Có những tác phẩm văn học sinh ra để ôm lấy, xoa dịu cũng như vuốt ve tới những sâu thẳm nhất của tâm hồn con người, nhưng cũng có những cuốn sách sinh ra để làm xáo trộn các căn tính, trở thành tâm điểm của những cuộc tranh luận về giá trị cũng như hệ tư tưởng mà hẳn sẽ khó mà có hồi kết. <em>Nỗi buồn chiến tranh</em> của Bảo Ninh (tên gốc: <em>Thân phận của tình yêu</em>) chính là một trường hợp đặc biệt như thế trong dòng chảy văn học Việt Nam đương đại. Kể từ khi xuất hiện vào thời kỳ Đổi mới, tác phẩm này đã trải qua một số phận thăng trầm tựa như chính tên gọi của nó, từ việc được ca ngợi như một kiệt tác đổi mới về tư duy chiến tranh, được dịch ra hàng chục thứ tiếng, nhưng đồng thời cũng vấp phải không ít sự phản ứng gay gắt, thậm chí là những định kiến nặng nề từ các nhà phê bình chính thống và đa phần độc giả cũng như công chúng.</p>
+        <p>Lần đầu tiên tiếp cận <em>Nỗi buồn chiến tranh</em> của tôi không phải với mục đích tìm hiểu, mà chính sự tò mò đã thôi thúc tôi ngồi lại và ngẫm nghĩ về nó. Cuốn sách này không phải một thiên anh hùng ca bất diệt (nhìn theo một hướng nào đó thì nó vẫn có thể được xem là một thiên anh hùng ca bất diệt) hay một bức tranh sử thi tráng lệ phủ đầy hoa hồng và những lời ca tụng chiến thắng. Nó bi thương, tráng lệ và thảm khốc tới tận cùng. So với giá trị tự thân của nghệ thuật, hẳn ai cũng thấy (hoặc không), rằng <em>Nỗi buồn chiến tranh</em> là một cuốn sách thực sự hay, một nốt trầm sâu sắc và chân thực chạm đến tận cùng bản chất của con người. Thế nhưng, đằng sau sự công nhận về mặt nghệ thuật ấy, cớ sự nào lại đưa một tác phẩm xuất sắc nhường ấy vướng phải một lượng tranh cãi còn kinh khủng hơn cả drama của Hải Tú với Sơn Tùng? <em>(sorry for being unserious TT)</em></p>
+
+        <h2><span class="fish-decor" style="position:static; display:inline-block; transform: scale(0.6);"></span> 2. Giá trị tự thân của tác phẩm: Khi tâm lý nhân vật chạm đến tận cùng của sang chấn</h2>
+        <p>Thước đo khắt khe nhất của tôi khi đánh giá liệu xem một tác phẩm có hay hay không luôn nằm ở việc nhà văn gọi tên và mổ xẻ diễn biến tâm lý nhân vật sâu sắc đến mức nào. Một cốt truyện ly kỳ, những tình tiết giật gân có thể lôi cuốn người đọc trong chốc lát, nhưng chỉ có những rung động nội tâm, những vết rạn nứt trong sâu thẳm tâm hồn nhân vật mới là thứ neo giữ tác phẩm lại với thời gian. Đối với tôi, xét trên phương diện này, Bảo Ninh đã đạt đến được đỉnh cao của văn xuôi hiện thực với việc lột trần cũng như bóc tách toàn bộ những gì tăm tối và khốn khổ nhất mà tâm lý của một người có thể cảm nhận được.</p>
+        <p><em>Nỗi buồn chiến tranh</em> không chọn cách kể chuyện theo trình tự thời gian tuyến tính thông thường, thay vào đó, toàn bộ cuốn sách là những mảnh vỡ ký ức rời rạc, những dòng ý thức đan xen, hỗn độn của Kiên – một người lính bước ra khỏi cuộc chiến với tư cách là người chiến thắng, nhưng tâm hồn anh ta thì đã vĩnh viễn kẹt lại ở chiến trường Tây Nguyên anh hùng, kẹt lại ở những năm tháng thanh xuân bị nghiền nát và giày xéo bởi bom đạn kẻ thù. Bảo Ninh - bằng những nét chấm phá táo bạo trong việc không lãng mạn hóa cuộc chiến - không né tránh, không giảm nhẹ sự tàn khốc, không ngại và cũng trần trụi lột tả tột cùng ghê rợn của chiến tranh. Qua ngòi bút của ông, chiến tranh hiện lên với tất cả sự hủy diệt củtưởi: không chỉ là sự xương tan thịt nát, không chỉ là sự ngã xuống, hi sinh, chết đi của người lính, mà là sự biến dạng của nhân tính, là những tiếng thét xé lòng của những người lính trẻ phút giây ngã lại về lòng mẹ Tổ quốc kiêu hùng, là màu máu đỏ thẫm, tanh tưởi và mùi tử khí nồng nặc tới lợm giọng bao trùm lên những cánh rừng già.</p>
+        <p>Nhưng cái hay nhất của cuốn sách không nằm ở những mô tả trực quan tới gai người của cái chết thường trực nơi chiến trường, mà nằm ở hệ quả vô hình của nó: hội chứng sang chấn tâm lý sau chiến tranh (<strong>PTSD - Post-Traumatic Stress Disorder</strong>). Bảo Ninh đã đặc tả một cách xuất sắc, đầy đau đớn cái sang chấn ấy lên nhân vật Kiên. Kiên sống trong hòa bình nhưng chưa một ngày được bình yên. Anh bị bủa vây bởi những bóng ma của quá khứ, những người đồng đội đã khuất liên tục hiện về trong những cơn mê sảng, trong tiếng mưa rơi trên mái tôn, trong những đêm trắng anh ngồi bên trang bản thảo. Sự khổ sở, ám ảnh và cô độc của Kiên được miêu tả chân thực đến mức ngột ngạt. Anh trở thành một kẻ lạc lõng giữa thời bình, một chứng nhân mang trên mình vết thương tâm lý không bao giờ lành miệng.</p>
+        <p>Việc miêu tả xuất sắc diễn biến tâm lý này chính là lý do khiến tác phẩm có một sức lay động khủng khiếp. Khi nhìn sâu vào sự hủy diệt nhân tính và nỗi đau khổ tột cùng mà nhân vật phải gánh chịu, người đọc không hề nảy sinh tâm lý chán chường hay buông xuôi, mà trái lại, trong lòng họ thức tỉnh một sự kinh hoàng trước chiến tranh. Chính từ sự kinh hoàng ấy, một giá trị nhân văn cao cả được thiết lập: sau khi gấp cuốn sách lại, chúng ta càng thêm thấu hiểu cái giá của xương máu, từ đó biết trân trọng, nâng niu và yêu quý cuộc sống hòa bình, êm ấm của hiện tại hơn bao giờ hết. Đó là giá trị thanh lọc tâm hồn (<strong>catharsis</strong>) mà chỉ những kiệt tác văn học chân chính mới làm được.</p>
+
+        <h2><span class="fish-decor" style="position:static; display:inline-block; transform: scale(0.6);"></span> 3. Câu chuyện về "Tầm đón nhận"</h2>
+        <p>Tuy nhiên, tôi luôn tâm niệm rằng một tác phẩm văn học, dẫu có xuất sắc đến đâu, cũng cần phải được đặt trong một không gian tiếp nhận phù hợp. Nghệ thuật và chính trị vốn là hai thực thể có mối quan hệ biện chứng nhưng cần phải được phân định biên giới một cách rạch ròi khi soi chiếu dưới góc độ phê bình.</p>
+        <p>Để lý giải điều này, tôi thường suy ngẫm về quan điểm của <strong>E.Gombrich</strong>, rằng chúng ta luôn luôn phải đặt nghệ thuật vào đúng hoàn cảnh ra đời, đúng bối cảnh lịch sử và văn hóa của nó thì mới có thể hiểu được một cách tường tận, thấu đáo. <em>Nỗi buồn chiến tranh</em> đã ra đời vào cuối thập niên 1980, giai đoạn đất nước bước vào thời kỳ Đổi mới, khi văn học cởi bỏ chiếc áo sử thi đại tự sự để quay về với những tự sự nhỏ của cá nhân, với dòng văn học suy tư, tự vấn và phản tỉnh. Chính vì mang tính đặc thù cao về mặt bối cảnh và có một cấu trúc tự sự phức tạp như thế, <em>Nỗi buồn chiến tranh</em> đòi hỏi người đọc phải có một tầm đón nhận (<strong>horizon of expectation</strong>) tương thích.</p>
+        <p>Nói một cách thẳng thắn, cuốn sách này chỉ nên tồn tại dưới danh nghĩa là một tài liệu tham khảo chuyên sâu dành cho những lĩnh vực cụ thể, những môi trường học thuật có chuyên môn cao – như ngành Văn học của chúng tôi. Tại sao lại như vậy? Bởi vì chỉ khi người đọc đã được trang bị đầy đủ kiến thức lịch sử, lý luận văn học và một nền tảng tư duy độc lập, vững vàng, thì họ mới có khả năng bóc tách các lớp nghĩa nghệ thuật của tác phẩm mà không bị xao động, hoang mang hay thiên lệch bởi các yếu tố chính trị hay ý thức hệ nhạy cảm bên ngoài. Người có tri thức văn học sẽ nhìn thấy ở đó tiếng khóc nhân bản của con người trước định mệnh, chứ không nhìn nó như một công cụ để phán xét hay phủ nhận lịch sử.</p>
+        <p>Ngược lại, cái dở và sự bất hợp lý hiện nay chính là việc người ta cố tình phổ biến nó một cách quá đà, thậm chí đưa tác phẩm này vào chương trình sách giáo khoa Ngữ văn phổ thông để giảng dạy cho học sinh. Theo quan điểm của tôi, đây là một sự áp đặt đối tượng tiếp cận hoàn toàn lệch pha. Các em học sinh trung học còn quá non trẻ, cả về tuổi đời, trải nghiệm sống lẫn phông nền tri thức lịch sử. Tầm đón nhận của các em chưa đủ rộng, tâm lý các em chưa đủ chín chắn để có thể dung nạp và thấu suốt được cái "ngột ngạt", cái bi thương và những sang chấn nặng nề của nhân vật Kiên.</p>
+        <p>Khi một tác phẩm mang tính phản tỉnh sâu sắc và đa diện như <em>Nỗi buồn chiến tranh</em> bị đặt vào một môi trường tiếp nhận còn non nớt, hệ quả tất yếu sẽ là sự khiên cưỡng. Hoặc là các em học sinh sẽ tiếp thu nó một cách hời hợt, sáo rỗng theo lời giảng của giáo viên, hoặc là các em dễ rơi vào trạng thái hoài nghi, xao động trước những giá trị lịch sử mà mình từng được học. Nghệ thuật nếu trao sai đối tượng sẽ trở thành một thứ biệt dược phản tác dụng.</p>
+        <p>Bên cạnh đó, tôi cũng không đồng tình với việc xã hội và giới truyền thông từng có giai đoạn đổ xô vào ca tụng, tổ chức những giải thưởng rùm beng, đẩy tác phẩm lên như một biểu tượng của sự đối lập tư duy. Việc truyền thông quá đà, biến một tác phẩm nghệ thuật thuần túy thành một thứ vũ khí để tranh luận về mặt ý thức hệ vô hình trung đã làm tổn hại đến chính tác phẩm. Nó đẩy một cuốn sách vốn cần sự tĩnh lặng, cần những góc suy ngẫm sâu kín của độc giả tri âm, vào vòng xoáy của những thị phi chính trị không đáng có, làm lu mờ đi những giá trị nghệ thuật đích thực mà Bảo Ninh đã tâm huyết gửi gắm.</p>
+
+        <h2><span class="fish-decor" style="position:static; display:inline-block; transform: scale(0.6);"></span> 4. Yêu nước không chỉ có một màu</h2>
+        <p>Một tác phẩm có giá trị nghệ thuật cao không có nghĩa là người đọc buộc phải đồng ý với toàn bộ thế giới quan hay hệ tư tưởng mà tác phẩm đó đại diện. Tôi công nhận <em>Nỗi buồn chiến tranh</em> là một cuốn sách hay, tôi đồng cảm với nỗi đau của nhân vật, nhưng ở cương vị của một công dân, một người trẻ đang sống trong thời đại mới, tôi thẳng thắn bày tỏ sự không đồng ý với việc biểu đẳng lòng yêu nước bằng cách thức như vậy.</p>
+        <p>Chiến tranh là đau khổ, là mất mát, đó là một sự thật lịch sử không thể chối cãi. Việc nhìn thẳng vào sự thật ấy là cần thiết để chúng ta từ bỏ ảo tưởng về một cuộc chiến chỉ có tiếng reo hò chiến thắng. Thế nhưng, nếu lòng yêu nước chỉ được xây dựng trên nền tảng của sự bi lụy, của nỗi buồn bám riết không buông, của việc đắm chìm trong những ký ức chấn thương để rồi sinh ra tâm lý mệt mỏi, chán chường trước thực tại, thì đó là một lòng yêu nước mang sắc màu tiêu cực. Lòng yêu nước, đối với bản thân tôi, cần nhiều hơn những điểm tựa tinh thần tích cực, cần một nguồn năng lượng hướng về phía trước, một niềm tin sắt đá vào tương lai và sức sống trỗi dậy của dân tộc sau những đổ nát.</p>
+        <p>Nhìn vào lịch sử, cha ông chúng ta đã đi qua cuộc chiến không phải bằng sự thanh thản, họ mang đầy những vết thương, nhưng cái giúp họ vượt qua và tái thiết đất nước chính là tinh thần lạc quan, là ý chí kiên cường và khát vọng sống mãnh liệt. Nếu văn học chỉ mãi đóng khung cái nhìn về chiến tranh trong những thung lũng gọi hồn, trong những kiếp người tàn phế về mặt tâm linh như Kiên, thì chúng ta đang vô tình bỏ sót một nửa khác của sự thật: đó là sức mạnh hồi sinh kỳ diệu của con người Việt Nam. Tôi trân trọng tiếng khóc nhân bản của Bảo Ninh, nhưng tôi từ chối coi đó là lăng kính duy nhất để định nghĩa về tình yêu quê hương đất nước. Tôi chọn yêu nước bằng một tâm thế tỉnh táo, biết ơn quá khứ nhưng luôn giữ cho mình một cái nhìn tươi sáng, tràn đầy hy vọng và hành động vì tương lai, chứ không phải bằng cách tự lưu đày tâm hồn mình trong những dư chấn bi thương của một thời đã qua.</p>
+
+        <h2><span class="fish-decor" style="position:static; display:inline-block; transform: scale(0.6);"></span> 5. Trả nghệ thuật về đúng thánh đường của nó</h2>
+        <p>Nói tóm lại, <em>Nỗi buồn chiến tranh</em> của Bảo Ninh mãi mãi là một hiện tượng độc đáo, một tác phẩm hậu chiến vĩ đại trong nền văn học Việt Nam hiện đại. Giá trị nghệ thuật của nó là điều không thể phủ nhận, đặc biệt là trong việc đặc tả xuất sắc diễn biến tâm lý nhân vật và phơi bày những góc khuất sang chấn của con người sau bão lửa chiến tranh. Cuốn sách đã hoàn thành sứ mệnh cao cả của nó (hoặc hoàn thành sứ mệnh với những người thực sự hiểu được điều nó muốn truyền tải…), khiến con người ta biết sợ chiến tranh và biết trân quý hòa bình. Là một người đã từng có những tiếp xúc trực tiếp với nhà văn Bảo Ninh - tác giả của tác phẩm này, tôi có thể khẳng định một cách chắc chắn rằng ông ấy là người yêu nước hơn ai hết.</p>
+        <p>Tuy nhiên, như một quy luật tất yếu của nghệ thuật tiếp nhận, tác phẩm này cần phải được trả về đúng vị trí và thánh đường phù hợp của nó. Nó nên là một tài liệu tham khảo giàu giá trị dành cho những nhà nghiên cứu, những người có chuyên môn và nền tảng tri thức vững vàng, thay vì bị đại chúng hóa một cách ồn ào hay khiên cưỡng đưa vào chương trình giáo dục phổ thông cho những tâm hồn còn quá non nớt. Nhìn nhận tác phẩm một cách khách quan, vừa thấu cảm cái hay trong nghệ thuật, vừa tỉnh táo phản biện trước những giới hạn mang tính hệ tư tưởng của nó, chính là cách chúng ta thể hiện sự tôn trọng chân chính đối với một tác phẩm văn học. Cuốn sách hay – đó là một sự thật nghệ thuật; nhưng yêu nước bằng cách ấy thì tôi nghĩ rằng, mỗi chúng ta đều có quyền giữ lại một khoảng không gian phản biện của riêng mình.</p>
+
+        <p class="closing-text">— Umino Erika</p>
+
+        <div class="hashtag-container">
+            <span class="hashtag">#sach</span>
+            <span class="hashtag">#vietlach</span>
+            <span class="hashtag">#vanchuong</span>
+        </div>
+    </main>
+
+    <footer>
+        <p>© Umino Erika </p>
+    </footer>
+
+</div>
+
+<script>
+    // --- HIỆU ỨNG NGÔI SAO LẤP LÁNH KHI CLICK ---
+    const starColors = ['#FFF3A7', '#FFB7CE', '#AEE2FF'];
+
+    window.addEventListener('click', function(e) {
+        if (e.target.closest('.back-btn')) return;
+
+        for (let i = 0; i < 5; i++) {
+            const star = document.createElement('div');
+            star.className = 'click-star';
+            
+            const randomColor = starColors[Math.floor(Math.random() * starColors.length)];
+            star.style.setProperty('--star-color', randomColor);
+            
+            star.style.left = e.pageX + 'px';
+            star.style.top = e.pageY + 'px';
+            
+            const moveX = (Math.random() - 0.5) * 80 - 50;
+            const moveY = (Math.random() - 0.5) * 80 - 50;
+            star.style.setProperty('--mx', moveX + '%');
+            star.style.setProperty('--my', moveY + '%');
+            
+            const size = Math.random() * 30 + 20;
+            star.style.width = size + 'px';
+            star.style.height = size + 'px';
+            
+            document.body.appendChild(star);
+            
+            setTimeout(() => {
+                star.remove();
+            }, 800);
+        }
+    });
+
+    // --- HÀM TẠO BONG BÓNG NGẪU NHIÊN ---
+    function createBubbles() {
+        const container = document.querySelector('.bubble-container');
+        if (!container) return;
+
+        const bubbleCount = 15; 
+        
+        for (let i = 0; i < bubbleCount; i++) {
+            let bubble = document.createElement('div');
+            bubble.classList.add('bubble');
+            
+            let size = Math.random() * 30 + 15;
+            bubble.style.width = `${size}px`;
+            bubble.style.height = `${size}px`;
+            
+            bubble.style.left = `${Math.random() * 100}%`;
+            
+            bubble.style.animationDuration = `${Math.random() * 6 + 6}s`;
+            bubble.style.animationDelay = `${Math.random() * 5}s`;
+            
+            container.appendChild(bubble);
+        }
+    }
+
+    window.addEventListener('DOMContentLoaded', createBubbles);
+</script>
+</body>
+</html>
