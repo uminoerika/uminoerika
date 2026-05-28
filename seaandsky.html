@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Where the sea meets the sky - Umino Erika</title>
+    <style>
+        /* --- CẤU HÌNH MÀU SẮC & PHÔNG CHỮ (Retro Japanese Pastel) --- */
+        @import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;700&display=swap');
+
+        :root {
+            --bg-pink: #FFD1DC;      /* Hồng pastel đậm ngọt ngào */
+            --panel-blue: #EBF3F5;   /* Màu xanh dương khói nhạt */
+            --accent-orange: #FF8C42;/* Cam san hô đậm nổi bật cho chú cá */
+            --text-dark: #2E3142;    /* Chữ chính màu than tối sắc nét */
+            --border-color: #8fa4ad; /* Đường viền retro đậm đà */
+            --white: #FFFFFF;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Comfortaa', 'Space Grotesk', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-pink);
+            color: var(--text-dark);
+            padding: 20px;
+            line-height: 1.9; /* Khoảng cách dòng thoáng đãng cho nét chữ mảnh mẻ dễ thở */
+            background-image: url('quality_restoration_20260521021539118.png');
+            background-attachment: fixed;
+            background-size: cover;
+            background-position: center;
+        }
+        
+        /* Khung chứa bong bóng bao phủ toàn màn hình */
+        .bubble-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: -1; 
+            pointer-events: none;
+        }
+
+        /* Định dạng từng viên bong bóng */
+        .bubble {
+            position: absolute;
+            bottom: -50px; 
+            background: rgba(235, 243, 245, 0.35); 
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            border-radius: 50%;
+            box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.6);
+            animation: floatUp 8s infinite linear;
+        }
+
+        .bubble::after {
+            content: '';
+            position: absolute;
+            top: 20%;
+            left: 20%;
+            width: 25%;
+            height: 25%;
+            background: rgba(255, 255, 255, 0.6);
+            border-radius: 50%;
+        }
+
+        @keyframes floatUp {
+            0% { transform: translateY(0) translateX(0); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateY(-110vh) translateX(50px); opacity: 0; }
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        /* --- HEADER --- */
+        header {
+            text-align: center;
+            padding: 40px 20px;
+            background: rgba(235, 243, 245, 0.85); 
+            border: 4px solid var(--border-color);
+            border-radius: 20px;
+            position: relative;
+            box-shadow: 6px 6px 0px var(--border-color);
+            margin-bottom: 30px;
+            overflow: hidden;
+        }
+
+        header h1 {
+            font-size: 1.8rem;
+            color: var(--text-dark);
+            margin-bottom: 12px;
+            font-weight: 700;
+            line-height: 1.5;
+        }
+        
+        header p {
+            font-size: 0.9rem;
+            color: #5c4d50;
+            font-weight: 500;
+        }
+
+        /* Chú cá trang trí */
+        .fish-decor {
+            position: absolute;
+            width: 40px;
+            height: 25px;
+            background: var(--accent-orange);
+            border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+            display: inline-block;
+        }
+        .fish-decor::after {
+            content: '';
+            position: absolute;
+            right: -8px;
+            top: 5px;
+            width: 0;
+            height: 0;
+            border-top: 8px solid transparent;
+            border-bottom: 8px solid transparent;
+            border-left: 12px solid var(--accent-orange);
+        }
+        .fish-decor::before {
+            content: '';
+            position: absolute;
+            left: 8px;
+            top: 6px;
+            width: 4px;
+            height: 4px;
+            background: var(--text-dark);
+            border-radius: 50%;
+        }
+
+        .fish-1 { top: 15%; left: 5%; transform: rotate(-10deg); }
+        .fish-2 { bottom: 15%; right: 5%; transform: rotate(15deg); }
+
+        /* --- NÚT QUAY LẠI TRANG CHỦ --- */
+        .back-nav {
+            display: flex;
+            margin-bottom: 25px;
+        }
+
+        .back-btn {
+            background: var(--white);
+            padding: 10px 20px;
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 700;
+            border: 3px solid var(--border-color);
+            border-radius: 12px;
+            box-shadow: 4px 4px 0px var(--border-color);
+            transition: all 0.2s ease;
+        }
+
+        .back-btn:hover {
+            transform: translate(2px, 2px);
+            box-shadow: 2px 2px 0px var(--border-color);
+            background: #F4C2D7;
+        }
+
+        /* --- KHUNG NỘI DUNG BÀI VIẾT CHÍNH --- */
+        .content-box {
+            background: rgba(255, 255, 255, 0.85); 
+            border: 4px solid var(--border-color);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 6px 6px 0px var(--border-color);
+        }
+
+        /* Định dạng các thẻ chữ mảnh mai thanh thoát */
+        .content-box p {
+            font-weight: 300; /* Nét chữ siêu mảnh mai kẹo ngọt */
+            font-size: 0.98rem;
+            margin-bottom: 22px;
+            text-align: justify;
+            text-justify: inter-word;
+            text-indent: 0px; /* Đã loại bỏ lui lề đầu dòng */
+        }
+
+        /* Không đổi màu chữ cho các từ nhấn mạnh */
+        .content-box strong {
+            font-weight: 600; 
+            color: var(--text-dark);
+        }
+
+        /* Hashtag block */
+        .hashtag-container {
+            margin-top: 30px;
+            padding-top: 15px;
+            border-top: 1px dashed var(--border-color);
+        }
+
+        .hashtag {
+            display: inline-block;
+            background: var(--panel-blue);
+            color: #5c4d50;
+            padding: 4px 12px;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            margin-right: 8px;
+            border: 1px solid var(--border-color);
+        }
+
+        /* Khung trích dẫn hoặc câu kết lùi lề */
+        .content-box p.closing-text {
+            text-align: right;
+            font-style: italic;
+            font-weight: 600;
+            margin-top: 30px;
+            text-indent: 0;
+            color: var(--accent-orange);
+        }
+
+        /* Responsive cho thiết bị nhỏ */
+        @media (max-width: 600px) {
+            .content-box { padding: 25px 20px; }
+            header h1 { font-size: 1.4rem; }
+            .fish-1, .fish-2 { display: none; }
+        }
+    </style>
+</head>
+<body>
+    <div class="bubble-container"></div>
+
+<div class="container">
+
+    <header>
+        <div class="fish-decor fish-1"></div>
+        <h1>Where the sea meets the sky</h1>
+        <p>Tác giả: Umino Erika | Ngày đăng: 29/05/2026</p> 
+        <div class="fish-decor fish-2"></div>
+    </header>
+
+    <div class="back-nav">
+        <a href="index.html" class="back-btn">← Quay lại chiếc bể cá lớn</a>
+    </div>
+
+    <main class="content-box">
+        
+        <p>Thế giới này thật rộng, bao la và thăm thẳm tới độ đời người dường như chỉ là những đốm sáng bé nhỏ lang thang giữa những tinh cầu.</p>
+        <p>Giữa dòng đời tất bật với vô vàn những câu chuyện cả quan trọng lẫn tầm phào, người ta cứ hối hả vội vàng lướt qua nhau, ngược xuôi như những con thoi và chỉ kịp thu vào đáy mắt nhau những khắc lướt qua mông lung rồi lại tiếp tục hối hả ngược xuôi với những vần vũ xoay vòng của một kiếp người.</p>
+        <p>Họ vẫn thường tự hào rằng họ hiểu hết thảy những dịu dàng của vạn vật.</p>
+        <p>Họ ngước mắt lên trời, bắt gặp áng mây trắng lững lờ vắt ngang nền trời trong trẻo, liền nghĩ rằng bầu trời thật dịu dàng và gần gụi.</p>
+        <p>Họ thênh thang dạo bước trên dải cát vàng, nghe sóng biển mơn man trên da thịt, liền nghĩ rằng biển thật mênh mang và hiền lành.</p>
+        <p>Họ thâu vào trong con ngươi của họ tất thảy những gì yêu kiều và mềm mại nhất của Biển và Trời.</p>
+        <p>Nhưng thế gian làm sao biết được, phía sau vẻ xanh trong của trời cao những ngày mùa hạ là vô vàn những vần vũ xoay vòng, cao vời vợi mà chẳng thấy điểm dừng, cũng nào đâu biết được, ẩn sau làn xanh trong là cuồn cuộn sóng trào, là hải lưu dữ dội ngàn năm không nghỉ.</p>
+        <p>Chẳng phải không biết, mà là chẳng thể thấu hiểu.</p>
+        <p>Loài người chọn ghi nhớ, đam mê và say đắm cái mềm mại và sâu lắng của làn nước, cái mênh mang và xôn xao của sắc trời, nhưng nào mấy ai thấu được những cuộn trào thăm thẳm nơi sâu kín nhất của Biển và Trời?</p>
+        <p>…</p>
+        <p>Bầu trời của người từ thuở khai sinh tới giờ chưa từng là một khoảng không vô lo vô nghĩ như người đời vẫn tưởng.</p>
+        <p>Trong đôi mắt trần tục của thế gian vạn vật, tầng không ấy lúc nào cũng bao dung đến độ vĩ đại, lúc nào cũng dịu dàng vỗ về từng ánh sao mỗi khi đêm về, ôm ấp từng áng mây lững lờ hay vuốt ve những cánh chim nhoài mỏi mỗi khi hoàng hôn tàn.</p>
+        <p>Ai ai cũng ôm lấy cùng một ảo tưởng ngọt ngào rằng bầu trời luôn thật gần gụi, luôn thật quen thuộc, chỉ cần ngước đôi mắt lên là có thể nhìn thấy, có thể sẻ chia và thấu suốt tất thảy mọi nỗi niềm.</p>
+        <p>Nhưng mấy ai nhận ra rằng, bầu trời ấy lại cô độc vô ngần, cứ vậy mà lặng lẽ một mình một ngựa đơn độc băng qua những năm tháng dài rộng và thăm thẳm của vô vàn những kiếp người.</p>
+        <p>Trời cao quá, xa quá, bao la vời vợi giữa muôn trùng tinh cầu, nên hẳn khi mặt trời lặng lẽ lui về nhường chỗ cho những giọt trăng đêm vằng vặc soi rọi, bầu trời lại chỉ biết cô độc mà ôm lấy những mênh mang tâm tình.</p>
+        <p>Ấy là những xôn xao không lời, là sắc ngân hà long lanh nhưng xa vợi, là những tiếng thở dài man mác từ sâu thẳm nơi trái tim những khắc yếu mỏi mà chẳng một ai thấu lòng.</p>
+        <p>Bởi lẽ, người đời chỉ say đắm khi sắc trời xanh trong và yêu kiều, chứ mấy ai buồn lắng lòng lại để nghe tiếng thở dài nhẹ bẫng của những vì sao lạc lối giữa những ngày gió nổi giông cuồng.</p>
+        <p>Bầu trời tưởng chừng vô lo và đơn thuần, nhưng lại chất chứa đến nhiều những tâm tình dang dở.</p>
+        <p>Người cứ vậy, lầm lũi bước độc hành giữa thế giới rộng lớn của riêng mình, ôm lấy những ước mơ vĩ đại, những suy tưởng mênh mông về cuộc đời mà số đông tất bật ngoài kia thường thờ ơ, chối từ để thấu hiểu.</p>
+        <p>Họ thấy người dịu dàng đơn thuần, nhưng họ cũng thấy người muôn phần xa xôi, cách trở trùng trùng, nên âu cũng dễ hiểu khi chỉ có thể bất giác buông ra lời cảm thán vu vơ mà chẳng mảy may thâu lấy những ngổn ngang nơi trái tim người.</p>
+        <p>Chỉ có chính người mới thấu được, cõi lòng mình đã phải trải qua bao khắc giông bão cuộn trào, bao nhiêu xáo động, vụn vỡ tới rụng rời mới có thể giữ lại được cho mình một sắc xanh bình yên, yêu kiều đến vậy cho nhân gian thả lại vào nơi nọ vô vàn những vụn vặt của cuộc đời.</p>
+        <p>Trái ngược hoàn toàn với cái vẻ độc hành xa xăm vời vợi của bầu trời, biển của em lại chọn cho mình một cách tồn tại thật dịu dàng, mềm mại và thân thiện ngay sát bên cuộc đời trần thế của con người.</p>
+        <p>Biển ở ngay đây thôi, kề cận sát bên dải cát vàng óng ánh, đêm ngày chẳng biết mỏi mệt mà ngân nga, thì thầm những tâm sự da diết, ân cần.</p>
+        <p>Chẳng quản đêm ngày, dẫu cho là giông gió vũ vần hay sóng yên bể lặng, em vẫn cứ mặc kệ mà gửi gắm hết thảy tâm tư vào những cơn sóng êm đềm xô lên bờ cát mịn.</p>
+        <p>Những kẻ lạc lối giữa xô bồ tấp nập của dòng đời, hay những trái tim mỏi mệt vì những phiêu bạt đều có thể tìm đến với biển, thả vào làn nước mát lành những muộn phiền, rạn vỡ của một ngày mỏi mệt rã rời.</p>
+        <p>Biển sẽ dang rộng vòng tay, ôm lấy và vỗ về họ bằng tất thảy sự bao dung, dịu ngọt.</p>
+        <p>Biển thân thiện với tất cả, hiền hòa, đón nhận mọi cuộc gặp gỡ trên đời, dẫu cho đó là những kẻ mang tâm tình tìm tới em với mong muốn trút bỏ hay chỉ là vạn bước chân lãng du đơn thuần.</p>
+        <p>But mấy ai thấu hiểu cho em cả, rằng trái tim xôn xao nấp dưới những êm đềm sóng xô kia của em lại sục sôi và mãnh liệt chẳng thua kém bất cứ điều gì.</p>
+        <p>Em mang trong mình một nỗi buồn man mác khó gọi thành lời, ấy là nỗi cô đơn xôn xao và niềm lạc lòng ngẩn ngơ khi chẳng ai có thể một lần chạm tới nơi sâu thẳm nhất của biển.</p>
+        <p>Người ta hối hả đến với biển, nhưng rốt cuộc cũng chỉ thấy phản chiếu lại trên mặt nước êm đềm kia hình bóng cô đơn của chính mình.</p>
+        <p>Họ say đắm những gợn sóng lăn tăn óng ánh dưới cái nắng rực rỡ ngày hè, họ thích thú tiếng rì rào như khúc tình ca không tên của đại dương khoảnh khắc hoàng hôn khẽ mơn man tên những dập dìu trôi nổi, nhưng thảy mọi thoi người ấy chưa từng một lần dừng lại để tự hỏi, phía dưới mặt nước phẳng lặng, hiền hòa kia thực chất là gì?</p>
+        <p>Chỉ có biển mới thấu được, trốn sâu sau cái vẻ hiền hòa dịu dàng đó là cả một cõi lòng đầy rẫy những vần vũ xáo trộn chực chờ bùng nổ.</p>
+        <p>Tận những nơi sâu thẳm của đại dương vĩnh hằng, nơi ánh mặt trời yêu kiều chẳng thể nào chiếu rọi là những dòng hải lưu cuộn trào dữ dội ngàn năm không nghỉ, là những xoáy nước chỉ chực chờ dâng lên nuốt chửng vạn vật, và là cả một vũ trụ tâm tư trầm mặc, u uất mà em đã dùng trọn cả vạn kiếp sống để giấu kín vào lòng.</p>
+        <p>Biển chứa đựng những rạn vỡ mong manh, những dao động đớn đau và sâu kín nhất của cảm xúc nơi thế gian trần tục, nhưng trên bề mặt hiển hiện, em vẫn chọn cách mỉm cười, nụ cười nhẹ tênh để giữ cho mình một làn nước phẳng lặng, êm dịu, cốt chẳng để làm tổn thương hay hoảng sợ những kẻ viếng thăm hời hợt, vội vàng.</p>
+        <p>Em chẳng có một ai thấu hiểu, vì người đời chỉ muốn dạo chơi, mơn man trên mặt sóng lững lờ, chứ nào có ai đủ dũng khí và can đảm lặn xuống tận cùng vùng tối tăm, lạnh lẽo để ôm lấy những xoáy dữ đang âm ỉ rực cháy mà em cất giấu trong lòng.</p>
+        <p>…</p>
+        <p>Hai tâm hồn mênh mông, cô đơn, lạc lõng, chẳng mấy ai thấu hiểu, tưởng chừng như sẽ chẳng thể nào gặp gỡ, đối mặt, như hai đường thẳng song song của hai thế giới tách biệt sẽ chẳng có cách nào quyện hòa.</p>
+        <p>Thế nhưng, âu cũng là cái sự thần kỳ, người và em lại có thể gặp được nhau nơi đường chân trời.</p>
+        <p>Ấy là nơi Trời sà xuống thấp để mơn man từng gợn tâm tư của Biển.</p>
+        <p>Ấy là nơi Biển rướn mình lên cao để lắng nghe thanh âm của Trời.</p>
+        <p>Họ gặp nhau ở đường chân trời, nhận ra rằng giữa vũ trụ bao la này, mình không hề cô độc.</p>
+        <p>Rằng dẫu gặp được, họ vẫn là chính mình, chỉ là có được một người thấu cho được cái xôn xao nơi sâu thẳm tâm hồn.</p>
+        <p>Trời có rộng lớn, mênh mông đến đâu thì biển cũng có bấy nhiêu chiều sâu lắng.</p>
+        <p>Chỉ có cái thẳm sâu của biển mới dung chứa được cái cao rộng của trời;</p>
+        <p>và ngược lại, chỉ có cái bao la của trời mới ôm trọn được bờ cõi của biển.</p>
+        <p>Họ nhìn thấy ở đối phương sự phản chiếu hoàn hảo của chính mình.</p>
+        <p>Những khoảnh khắc bầu trời thầm thì, những tâm sự mà người gửi vào thênh thang gió dịu, khi rơi xuống nơi mặt biển phẳng lặng liền mơn man những gợn sóng tâm tình.</p>
+        <p>Ấy là những rung động tưởng chừng thật đơn thuần, nhưng lại theo dòng nước mà lan tỏa tới tận những sâu lắng nhất của đại dương thăm thẳm.</p>
+        <p>Chẳng một lời giải thích, chẳng những đối thoại ồn ào, bầu trời vời vợi cứ vậy mà nhờ gió biển cõng theo những tâm sự mà tan đi theo những lớp sóng lăn tăn tận những nơi xa nhất của biển.</p>
+        <p>Có những ngày thế giới ngoài kia dường như ngưng đọng, bầu trời lặng gió, không có một áng mây nào trôi, và cũng chẳng có một lời tự sự nào cất lên từ phía người.</p>
+        <p>Ở dưới này, mặt biển của em cũng phẳng lặng như tờ, không một gợn sóng, thu mình lại trong một trạng thái suy tư, tĩnh tại.</p>
+        <p>Thế gian nông cạn liếc qua sẽ ngỡ như rằng trời và biển từ lâu đã chẳng còn những tâm sự, nhưng chính trong cái suy tư lặng thầm ấy lại là những thấu hiểu sâu đậm mà chẳng thiết phải cất thành lời.</p>
+        <p>Trời nhìn xuống thấy Biển, Biển nhìn lên thấy Trời.</p>
+        <p>Trong không gian yên bình ấy, biển trở thành một chiếc gương trong vắt, ôm trọn và phản chiếu tất thảy nhất từng tinh cầu lấp lánh, từng khoảng không trong veo của trời.</p>
+        <p>Người nhìn vào em và thấy mình được thấu hiểu, được vỗ về, được ôm ấp bằng những yên bình đơn giản.</p>
+        <p>Còn em, mỗi khắc ngước lên nhìn người, em đều biết rằng, dù dưới đáy sâu cõi lòng có xáo trộn, dù sóng sâu có sục sôi cuộn trào, thì phía trên cao kia vẫn luôn có một bầu trời tĩnh lặng, bao dung đang dõi theo và che chở cho em khỏi tất thảy những lo toan của thiên hạ.</p>
+        <p>Sự thấu hiểu ấy đã vượt qua mọi ngôn từ hoa mỹ nơi thế gian này, vượt qua cả những mông lung đơn côi đã đeo bám ta kể từ những ban sơ nhất của thời cuộc, rằng em biết người tồn tại, rằng người biết em hiểu người, và bấy nhiêu thôi đã đủ để cái mong manh vô thực của đường chân trời cứ rõ ràng, đẹp đẽ hơn bao giờ hết.</p>
+        <p>Người và em chẳng cần phải sống chết vì nhau, cũng chẳng cần thỏa hiệp với những xáo động ồn ào của kiếp người phiêu bạt.</p>
+        <p>Người hãy cứ là bầu trời tự do với những giấc mơ cao rộng, em sẽ là đại dương sâu thẳm với những xúc cảm nguyên sơ và dạt dào.</p>
+        <p>Và ở nơi đường chân trời xa xôi ấy, nơi đại dương gặp gỡ bầu trời, cả em lẫn người đều biết rằng dẫu có khác biệt, vẫn vì nhau mà tồn tại một ranh giới đồng điệu.</p>
+        <p>Trời nhìn xuống thấy Biển, Biển nhìn lên thấy Trời.</p>
+
+       
+    </main>
+    <footer>
+        <p>© Umino Erika </p>
+    </footer>
+</div>
+
+<script>
+    // --- HIỆU ỨNG NGÔI SAO LẤP LÁNH KHI CLICK ---
+    const starColors = ['#FFF3A7', '#FFB7CE', '#AEE2FF'];
+
+    window.addEventListener('click', function(e) {
+        if (e.target.closest('.back-btn')) return;
+
+        for (let i = 0; i < 5; i++) {
+            const star = document.createElement('div');
+            star.className = 'click-star';
+            
+            const randomColor = starColors[Math.floor(Math.random() * starColors.length)];
+            star.style.setProperty('--star-color', randomColor);
+            
+            star.style.left = e.pageX + 'px';
+            star.style.top = e.pageY + 'px';
+            
+            const moveX = (Math.random() - 0.5) * 80 - 50;
+            const moveY = (Math.random() - 0.5) * 80 - 50;
+            star.style.setProperty('--mx', moveX + '%');
+            star.style.setProperty('--my', moveY + '%');
+            
+            const size = Math.random() * 30 + 20;
+            star.style.width = size + 'px';
+            star.style.height = size + 'px';
+            
+            document.body.appendChild(star);
+            
+            setTimeout(() => {
+                star.remove();
+            }, 800);
+        }
+    });
+
+    // --- HÀM TẠO BONG BÓNG NGẪU NHIÊN ---
+    function createBubbles() {
+        const container = document.querySelector('.bubble-container');
+        if (!container) return;
+
+        const bubbleCount = 15; 
+        
+        for (let i = 0; i < bubbleCount; i++) {
+            let bubble = document.createElement('div');
+            bubble.classList.add('bubble');
+            
+            let size = Math.random() * 30 + 15;
+            bubble.style.width = `${size}px`;
+            bubble.style.height = `${size}px`;
+            
+            bubble.style.left = `${Math.random() * 100}%`;
+            
+            bubble.style.animationDuration = `${Math.random() * 6 + 6}s`;
+            bubble.style.animationDelay = `${Math.random() * 5}s`;
+            
+            container.appendChild(bubble);
+        }
+    }
+
+    window.addEventListener('DOMContentLoaded', createBubbles);
+</script>
+</body>
+</html>
